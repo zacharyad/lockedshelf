@@ -24,7 +24,7 @@ const puzzleData = [
     isSolved: false,
     answers: ['1233'],
     timeSolved: undefined,
-    tryCount: 6,
+    tryCount: 0,
     hint: 'the places give you a number based on the map',
     difficulty: 'med',
   },
@@ -37,23 +37,37 @@ const puzzleData = [
     isSolved: false,
     answers: ['00000'],
     timeSolved: new Date(),
-    tryCount: 4,
+    tryCount: 0,
     hint: 'the places give you a number based on the map',
     difficulty: 'hard',
   },
 ];
 
 function WithMain() {
+  const dialogRef = useRef(null);
   const [LsPuzzleData, setPuzzleData] = useState(null);
+  const [rerendered, rerender] = useState(false);
+  let [isWinner, setIsWinner] = useState(false);
 
   useEffect(() => {
-    const localStoragePuzzleData = localStorage.getItem('puzzle-data');
+    const localStoragePuzzleData = JSON.parse(
+      localStorage.getItem('puzzle-data')
+    );
+
     if (localStoragePuzzleData) {
-      setPuzzleData(JSON.parse(localStoragePuzzleData));
+      setPuzzleData(localStoragePuzzleData);
+
+      const winner = localStoragePuzzleData.reduce((acc, puzzle) => {
+        if (puzzle.isSolved === false) acc = false;
+        return acc;
+      }, true);
+
+      setIsWinner(winner);
     } else {
       localStorage.setItem('puzzle-data', JSON.stringify(puzzleData));
+      localStorage.setItem('time-started', new Date().toUTCString());
     }
-  }, []);
+  }, [rerendered]);
 
   const [hintState, setHintState] = useState(false);
 
@@ -61,22 +75,91 @@ function WithMain() {
     setHintState(!hintState);
   };
 
-  console.log('LS: ', LsPuzzleData);
+  const handleResetPuzzles = () => {
+    localStorage.removeItem('puzzle-data');
+    console.log('DELETED');
+    window.location.reload();
+  };
+
+  const handleDialogOpen = () => {
+    const dialog = document.getElementById('resetDialog');
+    if (dialog) {
+    }
+    dialog.showModal();
+  };
+
+  if (isWinner)
+    return (
+      <div>
+        <p>Congrats you won.</p>
+        <button onClick={handleResetPuzzles}>Reset</button>
+      </div>
+    );
 
   return (
     <div className="flex flex-col items-center">
-      <label htmlFor="hintToggle">Show Hints after 5 failures? </label>
-      <input onChange={toggleHints} checked={hintState} type="checkbox" />
+      <label
+        htmlFor="Toggle1"
+        className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
+      >
+        <span>Hints After Five Puzzle Attempts</span>
+        <span className="relative">
+          <input
+            id="Toggle1"
+            type="checkbox"
+            onChange={toggleHints}
+            className="hidden peer"
+          />
+          <div className="w-20 h-12 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-green-400"></div>
+          <div className="absolute inset-y-0 left-0 w-8 h-8 m-2 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+        </span>
+      </label>
+
       <Spacer />
-      {LsPuzzleData &&
+
+      {LsPuzzleData ? (
         LsPuzzleData.map((puzzle) => {
           return (
             <div key={puzzle.id}>
-              <PuzzleAnswerCard puzzle={puzzle} isHint={hintState} />
+              <PuzzleAnswerCard
+                puzzle={puzzle}
+                rerender={rerender}
+                isHint={hintState}
+              />
               <Spacer />
             </div>
           );
-        })}
+        })
+      ) : (
+        <p>Loading</p>
+      )}
+
+      <dialog id="resetDialog" className="p-4 rounded-md items-center">
+        <p>Are you sure you want to reset all</p>
+        <div className="flex gap-12 my-4">
+          <button
+            className="bg-red-600 text-white rounded-md py-2 px-4"
+            onClick={handleResetPuzzles}
+          >
+            Reset All Puzzles
+          </button>
+          <button
+            className="border-2 rounded-md py-2 px-4"
+            onClick={() => document.getElementById('resetDialog').close()}
+          >
+            Close
+          </button>
+        </div>
+      </dialog>
+
+      {LsPuzzleData && (
+        <button
+          className="bg-orange-600 py-2 px-4 rounded-md relative bottom-0 left-auto right-auto"
+          onClick={handleDialogOpen}
+        >
+          Reset All Answers
+        </button>
+      )}
     </div>
   );
 }

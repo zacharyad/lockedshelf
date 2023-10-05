@@ -14,8 +14,8 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning={true}>
       <body className={inter.className}>
         <nav className="flex justify-between items-center h-32 shadow-xl shadow-slate-800">
-          <div className="m-auto text-4xl">
-            <Link href="/">Logo</Link>
+          <div className="m-auto text-4xl ml-4">
+            <Link href="/">Locked Shelf</Link>
           </div>
           <ul className="flex w-1/2 justify-around">
             <li>
