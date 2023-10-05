@@ -98,6 +98,7 @@ function WithMain() {
 
   return (
     <div className="flex flex-col items-center">
+      <h1 className="text-3xl mb-12 border-b-2 p-2">Whispers in the Hollow</h1>
       <label
         htmlFor="Toggle1"
         className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
@@ -111,7 +112,7 @@ function WithMain() {
             className="hidden peer"
           />
           <div className="w-20 h-12 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-green-400"></div>
-          <div className="absolute inset-y-0 left-0 w-8 h-8 m-2 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+          <div className="absolute inset-y-0  left-0 w-8 h-8 m-2 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
         </span>
       </label>
 
