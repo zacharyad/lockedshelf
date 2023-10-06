@@ -77,11 +77,11 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
   };
 
   return (
-    <section className="w-64 flex flex-col border-2 rounded-md border-slate-50 p-2">
+    <section className="w-64 flex flex-col border-2 rounded-md border-slate-50 p-2 hover:border-slate-500 ">
       <div
         className={`${
           isSolved ? 'bg-green-600 border-2' : ''
-        } p-2 rounded-md flex gap-4 flex-col items-center`}
+        } p-2 rounded-md flex gap-4 flex-col items-center hover:-translate-y-1`}
       >
         {tryCount > 0 ? <p>Attempts: {tryCount}</p> : <p></p>}
         <div className="">
@@ -113,11 +113,15 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
                 type="submit"
               />
               <div>
-                <p>{errors.answer && <div>Error MSG</div>}</p>
-
+                <p>{errors.answer && <p>Error MSG</p>}</p>
+                <p>Difficulty: {difficulty}</p>
                 <p>
-                  <span className="font-bold italic">Hint: </span>
-                  {tryCount > 5 && isHint && <p>{hint}</p>}
+                  {tryCount > 5 && isHint && (
+                    <p>
+                      <span className="font-bold italic">Hint: </span>
+                      {hint}
+                    </p>
+                  )}
                 </p>
               </div>
             </form>

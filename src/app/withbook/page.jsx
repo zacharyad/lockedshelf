@@ -14,7 +14,7 @@ const puzzleData = [
     timeSolved: undefined,
     tryCount: 0,
     hint: 'Use the numbers next to letters to give about of that letter found in final word. The letters sort of go in order.',
-    difficulty: 'low',
+    difficulty: 'Low',
   },
   {
     id: 1,
@@ -26,7 +26,7 @@ const puzzleData = [
     timeSolved: undefined,
     tryCount: 0,
     hint: 'the places give you a number based on the map',
-    difficulty: 'med',
+    difficulty: 'Medium',
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const puzzleData = [
     timeSolved: new Date(),
     tryCount: 0,
     hint: 'the places give you a number based on the map',
-    difficulty: 'hard',
+    difficulty: 'Hard',
   },
 ];
 
@@ -66,6 +66,8 @@ function WithMain() {
     } else {
       localStorage.setItem('puzzle-data', JSON.stringify(puzzleData));
       localStorage.setItem('time-started', new Date().toUTCString());
+
+      window.history.reload();
     }
   }, [rerendered]);
 
@@ -103,7 +105,7 @@ function WithMain() {
         htmlFor="Toggle1"
         className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
       >
-        <span>Hints After Five Puzzle Attempts</span>
+        <span>Hints After Five Puzzle Attempts:</span>
         <span className="relative">
           <input
             id="Toggle1"
@@ -111,8 +113,8 @@ function WithMain() {
             onChange={toggleHints}
             className="hidden peer"
           />
-          <div className="w-20 h-12 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-green-400"></div>
-          <div className="absolute inset-y-0  left-0 w-8 h-8 m-2 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+          <div className="w-8 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-green-400"></div>
+          <div className="absolute inset-y-0  left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
         </span>
       </label>
 
