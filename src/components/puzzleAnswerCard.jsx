@@ -115,7 +115,10 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
               <div>
                 <p>{errors.answer && <div>Error MSG</div>}</p>
 
-                <p>{tryCount > 5 && isHint && <p>{hint}</p>}</p>
+                <p>
+                  <span className="font-bold italic">Hint: </span>
+                  {tryCount > 5 && isHint && <p>{hint}</p>}
+                </p>
               </div>
             </form>
           )}
