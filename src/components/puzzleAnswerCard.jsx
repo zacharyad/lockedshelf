@@ -51,7 +51,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
       // timeSolved to be eual to new Date()
       const timeSince =
         new Date() - new Date(localStorage.getItem('time-started'));
-      console.log(timeSince);
+
       currPuzzle.timeSolved = timeFromMsToHMS(timeSince);
       currPuzzle.isSolved = true;
     } else {
@@ -71,9 +71,8 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
 
     localStorage.setItem('puzzle-data', JSON.stringify(newData));
 
-    rerender((prev) => !prev);
-    console.log('got here?');
     reset();
+    rerender((prev) => !prev);
   };
 
   return (

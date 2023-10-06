@@ -67,7 +67,7 @@ function WithMain() {
       localStorage.setItem('puzzle-data', JSON.stringify(puzzleData));
       localStorage.setItem('time-started', new Date().toUTCString());
 
-      window.history.reload();
+      //window.history.reload();
     }
   }, [rerendered]);
 
