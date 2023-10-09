@@ -41,13 +41,14 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
   }
 
   const onSubmit = (data) => {
+    if (data.answer.trim() === '') return;
     // write to local storage to increase tryCount
     let oldData = JSON.parse(localStorage.getItem('puzzle-data'));
     let currPuzzle = oldData.filter((puzzle) => puzzle.id === id)[0];
 
     currPuzzle.tryCount = currPuzzle.tryCount + 1;
 
-    if (answers.includes(data.answer.toLowerCase())) {
+    if (answers.includes(data.answer.trim().toLowerCase())) {
       // write to localStorage to flip isSolved to true
       // timeSolved to be eual to new Date()
       const timeSince =
