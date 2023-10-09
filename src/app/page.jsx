@@ -49,6 +49,20 @@ export default function Home() {
               </Link>
             );
           })}
+        {books.length === 0 && (
+          <a target="_blank" href={'https://amazon.com'}>
+            <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
+              <h3>Whispers in the Hollow</h3>
+              <Image
+                alt={`Image for Whispers in the Hollow book found on Amazon.com for purchase`}
+                width={300}
+                height={300}
+                src={'/assets/test.jpg'}
+                className="rounded-md my-4"
+              />
+            </div>
+          </a>
+        )}
         <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
           <h3>Coming Soon!</h3>
 
