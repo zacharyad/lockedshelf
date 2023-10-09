@@ -66,8 +66,6 @@ function WithMain() {
     } else {
       localStorage.setItem('puzzle-data', JSON.stringify(puzzleData));
       localStorage.setItem('time-started', new Date().toUTCString());
-
-      //window.history.reload();
     }
   }, [rerendered]);
 
@@ -90,6 +88,42 @@ function WithMain() {
     dialog.showModal();
   };
 
+  const isAlreadyABookInLs = () => {
+    const LsBooks = JSON.parse(localStorage.getItem('books'));
+
+    if (!LsBooks) return false;
+
+    for (let i = 0; i < LsBooks.length; i++) {
+      if (LsBooks[i].name === 'Whispers in the Hollow') {
+        // Already has this book.
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  const handleAddingBookToShelf = () => {
+    const LsBooks = JSON.parse(localStorage.getItem('books'));
+    const withBookData = {
+      name: 'Whispers in the Hollow',
+      bookImage: '/assets/test.jpg',
+      isSolved: false,
+      href: '/withbook',
+    };
+
+    if (!LsBooks) {
+      localStorage.setItem('books', JSON.stringify([withBookData]));
+    } else {
+      if (isAlreadyABookInLs()) return;
+
+      LsBooks.push(withBookData);
+      localStorage.setItem('books', JSON.stringify(LsBooks));
+    }
+
+    window.location.reload();
+  };
+
   if (isWinner)
     return (
       <div>
@@ -101,22 +135,18 @@ function WithMain() {
   return (
     <div className="flex flex-col items-center snap-y snap-proximity ">
       <h1 className="text-3xl mb-12 border-b-2 p-2">Whispers in the Hollow</h1>
-      <label
-        htmlFor="Toggle1"
-        className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
-      >
-        <span>Hints After Five Puzzle Attempts:</span>
-        <span className="relative">
-          <input
-            id="Toggle1"
-            type="checkbox"
-            onChange={toggleHints}
-            className="hidden peer"
-          />
-          <div className="w-8 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-green-400"></div>
-          <div className="absolute inset-y-0  left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
-        </span>
-      </label>
+
+      {!isAlreadyABookInLs() ? (
+        <button
+          className="bg-slate-100 py-2 px-4 rounded-md text-black hover:opacity-80"
+          type="button"
+          onClick={handleAddingBookToShelf}
+        >
+          Add Book to Shelf
+        </button>
+      ) : (
+        <div></div>
+      )}
 
       <Spacer />
 
@@ -156,12 +186,30 @@ function WithMain() {
       </dialog>
 
       {LsPuzzleData && (
-        <button
-          className="bg-orange-600 py-2 px-4 rounded-md relative bottom-0 left-auto right-auto"
-          onClick={handleDialogOpen}
-        >
-          Reset All Answers
-        </button>
+        <div className="flex flex-col gap-12">
+          <button
+            className="bg-orange-600 py-2 px-4 rounded-md relative bottom-0 left-auto right-auto"
+            onClick={handleDialogOpen}
+          >
+            Reset All Answers
+          </button>
+          <label
+            htmlFor="Toggle1"
+            className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
+          >
+            <span>Hints After Five Puzzle Attempts:</span>
+            <span className="relative">
+              <input
+                id="Toggle1"
+                type="checkbox"
+                onChange={toggleHints}
+                className="hidden peer"
+              />
+              <div className="w-8 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-green-400"></div>
+              <div className="absolute inset-y-0  left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+            </span>
+          </label>
+        </div>
       )}
     </div>
   );

@@ -18,9 +18,9 @@ export default function RootLayout({ children }) {
             <Link href="/">Locked Shelf</Link>
           </div>
 
-          <div className="m-auto mr-12">
+          {/* <div className="m-auto mr-12">
             <Link href="/info">Information</Link>
-          </div>
+          </div> */}
         </nav>
         <Spacer size={8} />
         <main>{children}</main>
