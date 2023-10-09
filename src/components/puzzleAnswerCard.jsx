@@ -63,7 +63,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
         console.log('here');
         //register((prev) => !prev);
         setIsError(false);
-      }, 1000);
+      }, 1550);
     }
 
     let newData = oldData.map((puzzle) => {
@@ -81,8 +81,8 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
 
   return (
     <section
-      className={`w-96 ${
-        isError ? 'bg-red-500 animate-spin' : ''
+      className={`w-96 snap-top ${
+        isError ? 'bg-red-500 animate-bounce' : ''
       } flex flex-col border-2 rounded-md border-slate-50 p-2 hover:border-slate-500 `}
     >
       <div
