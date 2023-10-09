@@ -23,28 +23,44 @@ export default function Home() {
           Your Book Shelf
         </h2>
       )}
-      {books.length !== 0 &&
-        books.map((book) => {
-          return (
-            <section
-              key={book.name}
-              className="bg-slate-300 w-full flex flex-col gap-4 p-4"
-            >
-              <div className="bg-orange-400 h-96 m-auto border-2 rounded-md p-4 text-center">
-                <h3>{book.name}</h3>
-                <Link href={book.href}>
+      <section className="bg-slate-300 w-full flex flex-col items-center gap-4 p-4">
+        {books.length !== 0 &&
+          books.map((book) => {
+            let won = books.reduce((acc, puzzle) => {
+              if (puzzle.isSolved === false) acc = false;
+              return acc;
+            }, true);
+
+            console.log('You won?: ', won);
+
+            return (
+              <Link key={book.name} href={book.href}>
+                <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
+                  <h3>{book.name}</h3>
+                  {won && <p className="text-green-400">Completed</p>}
                   <Image
                     alt={`Image for the book, "${book.name}"`}
                     width={300}
                     height={300}
                     src={book.bookImage}
-                    className="rounded-md"
+                    className="rounded-md my-4"
                   />
-                </Link>
-              </div>
-            </section>
-          );
-        })}
+                </div>
+              </Link>
+            );
+          })}
+        <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
+          <h3>Coming Soon!</h3>
+
+          <Image
+            alt={`Coming soon image`}
+            width={300}
+            height={300}
+            src={'/assets/test.jpg'}
+            className="rounded-md my-4"
+          />
+        </div>
+      </section>
 
       <section>How it works section</section>
     </div>

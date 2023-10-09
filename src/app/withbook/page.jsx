@@ -51,12 +51,14 @@ function WithMain() {
 
   useEffect(() => {
     const localStoragePuzzleData = JSON.parse(
-      localStorage.getItem('puzzle-data')
+      localStorage.getItem('with-puzzle-data')
     );
     const LsBooks = JSON.parse(localStorage.getItem('books'));
 
     if (LsBooks) {
       setBooks(LsBooks);
+    } else {
+      handleAddingBookToShelf();
     }
 
     if (localStoragePuzzleData) {
@@ -67,9 +69,18 @@ function WithMain() {
         return acc;
       }, true);
 
+      if (winner) {
+        for (let i = 0; i < LsBooks.length; i++) {
+          if (LsBooks[i].name === 'Whispers in the Hollow') {
+            LsBooks[i].isSolved = true;
+          }
+        }
+        localStorage.setItem('books', JSON.stringify(LsBooks));
+      }
+
       setIsWinner(winner);
     } else {
-      localStorage.setItem('puzzle-data', JSON.stringify(puzzleData));
+      localStorage.setItem('with-puzzle-data', JSON.stringify(puzzleData));
       localStorage.setItem('time-started', new Date().toUTCString());
     }
   }, [rerendered]);
@@ -81,7 +92,8 @@ function WithMain() {
   };
 
   const handleResetPuzzles = () => {
-    localStorage.removeItem('puzzle-data');
+    localStorage.removeItem('with-puzzle-data');
+    localStorage.removeItem('books');
     rerender((prev) => !prev);
     window.location.reload();
   };
@@ -122,33 +134,20 @@ function WithMain() {
       LsBooks.push(withBookData);
       localStorage.setItem('books', JSON.stringify(LsBooks));
     }
-
-    window.location.reload();
   };
 
-  if (isWinner)
+  if (isWinner) {
     return (
       <div>
         <p>Congrats you won.</p>
         <button onClick={handleResetPuzzles}>Reset</button>
       </div>
     );
+  }
 
   return (
     <div className="flex flex-col items-center snap-y snap-proximity ">
       <h1 className="text-3xl mb-12 border-b-2 p-2">Whispers in the Hollow</h1>
-
-      {!isAlreadyABookInLs('Whispers in the Hollow') ? (
-        <button
-          className="bg-slate-100 py-2 px-4 rounded-md text-black hover:opacity-80"
-          type="button"
-          onClick={handleAddingBookToShelf}
-        >
-          Add Book to Shelf
-        </button>
-      ) : (
-        <div></div>
-      )}
 
       <Spacer />
 

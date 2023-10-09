@@ -43,7 +43,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
   const onSubmit = (data) => {
     if (data.answer.trim() === '') return;
     // write to local storage to increase tryCount
-    let oldData = JSON.parse(localStorage.getItem('puzzle-data'));
+    let oldData = JSON.parse(localStorage.getItem('with-puzzle-data'));
     let currPuzzle = oldData.filter((puzzle) => puzzle.id === id)[0];
 
     currPuzzle.tryCount = currPuzzle.tryCount + 1;
@@ -60,7 +60,6 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
       // or set animation to briefly red and shake animation
       setIsError(true);
       setTimeout(() => {
-        console.log('here');
         //register((prev) => !prev);
         setIsError(false);
       }, 1550);
@@ -73,7 +72,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
       return puzzle;
     });
 
-    localStorage.setItem('puzzle-data', JSON.stringify(newData));
+    localStorage.setItem('with-puzzle-data', JSON.stringify(newData));
 
     reset();
     rerender((prev) => !prev);
