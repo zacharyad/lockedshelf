@@ -79,7 +79,6 @@ function WithMain() {
 
   const handleResetPuzzles = () => {
     localStorage.removeItem('puzzle-data');
-    console.log('DELETED');
     rerender((prev) => !prev);
     window.location.reload();
   };

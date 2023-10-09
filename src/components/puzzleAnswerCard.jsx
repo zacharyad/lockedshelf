@@ -1,9 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 
 function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
+  const [isError, setIsError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -56,10 +57,12 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
       currPuzzle.isSolved = true;
     } else {
       // or set animation to briefly red and shake animation
-      setError('answer', {
-        type: 'custom',
-        message: 'Incorrect Answer',
-      });
+      setIsError(true);
+      setTimeout(() => {
+        console.log('here');
+        //register((prev) => !prev);
+        setIsError(false);
+      }, 1000);
     }
 
     let newData = oldData.map((puzzle) => {
@@ -76,7 +79,11 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
   };
 
   return (
-    <section className="w-64 flex flex-col border-2 rounded-md border-slate-50 p-2 hover:border-slate-500 ">
+    <section
+      className={`w-96 ${
+        isError ? 'bg-red-500 animate-spin' : ''
+      } flex flex-col border-2 rounded-md border-slate-50 p-2 hover:border-slate-500 `}
+    >
       <div
         className={`${
           isSolved ? 'bg-green-600 border-2' : ''
@@ -84,9 +91,9 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
       >
         {tryCount > 0 ? <p>Attempts: {tryCount}</p> : <p></p>}
         <div className="">
-          <Image alt={imageAlt} width={200} height={200} src={imageSrc} />
+          <Image alt={imageAlt} width={300} height={300} src={imageSrc} />
         </div>
-        <div className="self-center justify-self-center">
+        <div className="self-center justify-self-center w-4/6">
           {isSolved ? (
             <div className="flex flex-col">
               <p>Solved!</p>
@@ -100,15 +107,15 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
             </div>
           ) : (
             <form
-              className="flex flex-col items-center my-4 border-b-2 border-slate-50"
+              className="flex flex-col items-center my-4 border-b-2  border-slate-50"
               onSubmit={handleSubmit(onSubmit)}
             >
               <input
-                className="text-black h-12 text-center"
+                className="text-black h-12 w-full text-center"
                 {...register('answer')}
               />
               <input
-                className="bg-slate-50 w-full my-2 text-black"
+                className="w-4/6 my-2 text-black bg-slate-300 py-2 rounded-md hover:underline"
                 type="submit"
               />
               <div>
