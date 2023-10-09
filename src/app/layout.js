@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={inter.className}>
+      <body className={`${inter.className} `}>
         <nav className="flex justify-around items-center h-32 shadow-xl shadow-slate-800">
           <div className="m-auto text-4xl ml-12">
             <Link href="/">Locked Shelf</Link>
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         <Spacer size={8} />
         <main>{children}</main>
         <Spacer size={32} />
-        <footer className="border-t-2 backdrop-blur-xl fixed bottom-0 left-0 right-0 border-slate-800 border-opacity-70 bg-inherit opacity-80 text-sm p-8">
+        <footer className="border-t-2 backdrop-blur-xl  border-slate-800 border-opacity-70 bg-inherit opacity-80 text-sm p-8">
           copyright 2023
         </footer>
       </body>
