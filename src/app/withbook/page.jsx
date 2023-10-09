@@ -1,6 +1,6 @@
 'use client';
 import PuzzleAnswerCard from '@/components/puzzleAnswerCard';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Spacer from '@/components/spacer';
 
 const puzzleData = [
@@ -44,15 +44,20 @@ const puzzleData = [
 ];
 
 function WithMain() {
-  const dialogRef = useRef(null);
   const [LsPuzzleData, setPuzzleData] = useState(null);
   const [rerendered, rerender] = useState(false);
   let [isWinner, setIsWinner] = useState(false);
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const localStoragePuzzleData = JSON.parse(
       localStorage.getItem('puzzle-data')
     );
+    const LsBooks = JSON.parse(localStorage.getItem('books'));
+
+    if (LsBooks) {
+      setBooks(LsBooks);
+    }
 
     if (localStoragePuzzleData) {
       setPuzzleData(localStoragePuzzleData);
@@ -88,18 +93,15 @@ function WithMain() {
     dialog.showModal();
   };
 
-  const isAlreadyABookInLs = () => {
-    const LsBooks = JSON.parse(localStorage.getItem('books'));
+  const isAlreadyABookInLs = (bookName) => {
+    if (!books) return false;
 
-    if (!LsBooks) return false;
-
-    for (let i = 0; i < LsBooks.length; i++) {
-      if (LsBooks[i].name === 'Whispers in the Hollow') {
+    for (let i = 0; i < books.length; i++) {
+      if (books[i].name === bookName) {
         // Already has this book.
         return true;
       }
     }
-
     return false;
   };
 
@@ -115,7 +117,7 @@ function WithMain() {
     if (!LsBooks) {
       localStorage.setItem('books', JSON.stringify([withBookData]));
     } else {
-      if (isAlreadyABookInLs()) return;
+      if (isAlreadyABookInLs('Whispers in the Hollow')) return;
 
       LsBooks.push(withBookData);
       localStorage.setItem('books', JSON.stringify(LsBooks));
@@ -136,7 +138,7 @@ function WithMain() {
     <div className="flex flex-col items-center snap-y snap-proximity ">
       <h1 className="text-3xl mb-12 border-b-2 p-2">Whispers in the Hollow</h1>
 
-      {!isAlreadyABookInLs() ? (
+      {!isAlreadyABookInLs('Whispers in the Hollow') ? (
         <button
           className="bg-slate-100 py-2 px-4 rounded-md text-black hover:opacity-80"
           type="button"
