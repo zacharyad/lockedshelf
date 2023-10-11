@@ -151,7 +151,7 @@ function WithMain() {
     <div className="flex flex-col items-center snap-y snap-proximity ">
       <h1 className="text-3xl mb-12 border-b-2 p-2">Whispers in the Hollow</h1>
 
-      <Spacer />
+      <Spacer size={24} />
 
       {LsPuzzleData ? (
         LsPuzzleData.map((puzzle) => {
