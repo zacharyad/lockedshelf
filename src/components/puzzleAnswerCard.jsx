@@ -62,7 +62,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
       setTimeout(() => {
         //register((prev) => !prev);
         setIsError(false);
-      }, 1550);
+      }, 1000);
     }
 
     let newData = oldData.map((puzzle) => {
@@ -81,7 +81,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
   return (
     <section
       className={`w-96 snap-top ${
-        isError ? 'bg-red-500 animate-bounce' : ''
+        isError ? 'bg-red-500 animate-ping' : ''
       } flex flex-col border-2 rounded-md border-slate-50 p-2 hover:border-slate-500 `}
     >
       <div
@@ -110,9 +110,12 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
               className="flex flex-col items-center my-4 border-b-2  border-slate-50"
               onSubmit={handleSubmit(onSubmit)}
             >
+              <label htmlFor="input">Answer: </label>
               <input
-                className="text-black h-12 w-full text-center"
+                id="input"
+                className="text-black h-12 w-full text-center border-slate-600 border-2 rounded-md"
                 {...register('answer')}
+                placeholder="______________________"
               />
               <input
                 className="w-4/6 my-2 text-black bg-slate-300 py-2 rounded-md hover:underline"
