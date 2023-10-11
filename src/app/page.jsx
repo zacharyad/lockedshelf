@@ -13,7 +13,7 @@ export default function Home() {
             Each physical book offers a labyrinth of secrets; hidden, waiting
             for you to seek out and solve
           </p>
-          <Spacer />
+          <Spacer size={24} />
           <a
             href="#bookShelf"
             className=" border-2 px-6 py-2 bg-slate-300 rounded-md"
