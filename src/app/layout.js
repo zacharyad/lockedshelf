@@ -18,9 +18,10 @@ export default function RootLayout({ children }) {
           <div className="m-auto text-2xl ml-12 flex justify-between items-center w-screen">
             <Link href="/">
               <Image
-                className="h-32 w-full p-4"
+                alt="Logo image and a Navigation button to go to homepage"
+                className="h-32 w-auto p-4"
                 height={100}
-                width={100}
+                width={50}
                 src="/assets/LOGO_in.png"
               />
             </Link>
