@@ -5,9 +5,14 @@ import Spacer from '@/components/spacer';
 export default function Home() {
   return (
     <div>
-      <main className="flex min-h-screen flex-col items-center gap-4">
+      <main className="flex h-screen -mb-32 md:-mb-2 md:min-h-[500px] flex-col  items-center gap-4">
         <div className="absolute top-42 left-0 right-0 text-2xl text-slate-700 w-screen flex flex-col items-center text-center">
-          <Image src="/assets/LOGO.png" width={700} height={700} />
+          <Image
+            className="w-5/6 md:w-5/12"
+            src="/assets/LOGO.png"
+            width={600}
+            height={400}
+          />
           <Spacer size={24} />
           <p className="text-slate-700 w-5/6">
             Each physical book offers a labyrinth of secrets; hidden, waiting
