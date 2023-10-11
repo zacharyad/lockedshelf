@@ -1,82 +1,29 @@
-'use client';
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import BookShelf from '../components/bookshelf';
+import InfoSection from '../components/infoSection';
+import Spacer from '@/components/spacer';
 export default function Home() {
-  const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    const LsBooks = JSON.parse(localStorage.getItem('books'));
-
-    if (LsBooks) {
-      setBooks(LsBooks);
-    }
-  }, []);
-
   return (
     <div>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        Main Page For This Site
-      </main>
-      {books.length !== 0 && (
-        <h2 className="text-center p-4  bg-slate-300 text-black">
-          Your Book Shelf
-        </h2>
-      )}
-      <section className="bg-slate-300 w-full flex flex-col items-center gap-4 p-4">
-        {books.length !== 0 &&
-          books.map((book) => {
-            let won = books.reduce((acc, puzzle) => {
-              if (puzzle.isSolved === false) acc = false;
-              return acc;
-            }, true);
-
-            console.log('You won?: ', won);
-
-            return (
-              <Link key={book.name} href={book.href}>
-                <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
-                  <h3>{book.name}</h3>
-                  {won && <p className="text-green-400">Completed</p>}
-                  <Image
-                    alt={`Image for the book, "${book.name}"`}
-                    width={300}
-                    height={300}
-                    src={book.bookImage}
-                    className="rounded-md my-4"
-                  />
-                </div>
-              </Link>
-            );
-          })}
-        {books.length === 0 && (
-          <a target="_blank" href={'https://amazon.com'}>
-            <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
-              <h3>Whispers in the Hollow</h3>
-              <Image
-                alt={`Image for Whispers in the Hollow book found on Amazon.com for purchase`}
-                width={300}
-                height={300}
-                src={'/assets/test.jpg'}
-                className="rounded-md my-4"
-              />
-            </div>
+      <main className="flex min-h-screen flex-col items-center gap-4">
+        <div className="absolute top-42 left-0 right-0 text-2xl text-slate-700 w-screen flex flex-col items-center text-center">
+          <Image src="/assets/LOGO.png" width={700} height={700} />
+          <Spacer size={24} />
+          <p className="text-slate-700 w-5/6">
+            Each physical book offers a labyrinth of secrets; hidden, waiting
+            for you to seek out and solve
+          </p>
+          <Spacer />
+          <a
+            href="#bookShelf"
+            className=" border-2 px-6 py-2 bg-slate-300 rounded-md"
+          >
+            See current books
           </a>
-        )}
-        <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
-          <h3>Coming Soon!</h3>
-
-          <Image
-            alt={`Coming soon image`}
-            width={300}
-            height={300}
-            src={'/assets/test.jpg'}
-            className="rounded-md my-4"
-          />
         </div>
-      </section>
-
-      <section>How it works section</section>
+      </main>
+      <BookShelf />
+      <InfoSection />
     </div>
   );
 }
