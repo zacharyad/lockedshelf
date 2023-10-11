@@ -1,17 +1,19 @@
 'use client';
-
 import React, { useEffect, useState } from 'react';
 import Spacer from './spacer';
-import { timeFromMsToHMS } from '../utils';
+import { timeFromMsToHMS, findBookById, getTimeSolved } from '../utils';
 
-function Winner({ rerender, bookName }) {
+function Winner({ rerender, bookName, bookId }) {
   const [totalTimeToSolve, setTimeToSolve] = useState(null);
-  useEffect(() => {
-    const timeStarted = new Date(localStorage.getItem('with-time-started'));
-    const timeEnded = new Date(localStorage.getItem('with-end-time'));
-    const totalTimeSpendSolving = timeEnded - timeStarted;
 
-    setTimeToSolve(timeFromMsToHMS(totalTimeSpendSolving));
+  useEffect(() => {
+    const LsBooks = JSON.parse(localStorage.getItem('books'));
+    const book = findBookById(LsBooks, bookId);
+
+    if (book) {
+      const totalTimeSpendSolvingString = getTimeSolved(book);
+      setTimeToSolve(totalTimeSpendSolvingString);
+    }
   }, []);
 
   const handleResetPuzzles = () => {

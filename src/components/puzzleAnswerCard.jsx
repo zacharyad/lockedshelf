@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
-import { timeFromMsToHMS } from '../utils';
+import { timeFromMsToHMS, findBookById } from '../utils';
 
-function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
+function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
   const [isError, setIsError] = useState(false);
   const {
     register,
@@ -38,8 +38,10 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
     if (answers.includes(data.answer.trim().toLowerCase())) {
       // write to localStorage to flip isSolved to true
       // timeSolved to be eual to new Date()
-      const timeSince =
-        new Date() - new Date(localStorage.getItem('with-time-started'));
+      const LsBooks = JSON.parse(localStorage.getItem('books'));
+      const book = findBookById(LsBooks, 0);
+
+      const timeSince = new Date() - new Date(book.timeStarted);
 
       currPuzzle.timeSolved = timeFromMsToHMS(timeSince);
       currPuzzle.isSolved = true;

@@ -3,8 +3,13 @@ import PuzzleAnswerCard from '@/components/puzzleAnswerCard';
 import React, { useEffect, useState } from 'react';
 import Spacer from '@/components/spacer';
 import Winner from '@/components/winner';
-import { isAlreadyABookInLs, handleResetPuzzles } from '../../utils';
-import { with_puzzle_data } from '../../data';
+import {
+  isAlreadyABookInLs,
+  handleResetPuzzles,
+  findBookById,
+} from '../../utils';
+import { with_puzzle_data, intialWITHBookData } from '../../data';
+
 function WithMain() {
   const [LsPuzzleData, setPuzzleData] = useState(null);
   const [rerendered, rerender] = useState(false);
@@ -32,17 +37,20 @@ function WithMain() {
       }, true);
 
       if (winner) {
-        for (let i = 0; i < LsBooks.length; i++) {
-          if (LsBooks[i].name === 'Whispers in the Hollow') {
-            LsBooks[i].isSolved = true;
+        let book = findBookById(LsBooks, 0);
+
+        if (book) {
+          book.isSolved = true;
+          if (book.timeEnded === undefined) {
+            book.timeEnded = new Date().toUTCString();
           }
         }
 
         localStorage.setItem('books', JSON.stringify(LsBooks));
 
-        if (!localStorage.getItem('with-end-time')) {
-          localStorage.setItem('with-end-time', new Date().toUTCString());
-        }
+        // if (!localStorage.getItem('with-end-time')) {
+        //   localStorage.setItem('with-end-time', new Date().toUTCString());
+        // }
       }
 
       setIsWinner(winner);
@@ -51,7 +59,7 @@ function WithMain() {
         'with-puzzle-data',
         JSON.stringify(with_puzzle_data)
       );
-      localStorage.setItem('with-time-started', new Date().toUTCString());
+      //localStorage.setItem('with-time-started', new Date().toUTCString());
       window.location.reload();
     }
   }, [rerendered]);
@@ -71,15 +79,9 @@ function WithMain() {
 
   const handleAddingBookToShelf = () => {
     const LsBooks = JSON.parse(localStorage.getItem('books'));
-    const withBookData = {
-      name: 'Whispers in the Hollow',
-      bookImage: '/assets/test.jpg',
-      isSolved: false,
-      href: '/withbook',
-    };
 
     if (!LsBooks) {
-      localStorage.setItem('books', JSON.stringify([withBookData]));
+      localStorage.setItem('books', JSON.stringify([intialWITHBookData]));
     } else {
       if (isAlreadyABookInLs('Whispers in the Hollow', books)) return;
 
@@ -89,7 +91,13 @@ function WithMain() {
   };
 
   if (isWinner) {
-    return <Winner rerender={rerender} bookName="Whispers in the Hollow" />;
+    return (
+      <Winner
+        rerender={rerender}
+        bookName="Whispers in the Hollow"
+        bookId={0}
+      />
+    );
   }
 
   return (
@@ -106,6 +114,7 @@ function WithMain() {
                 puzzle={puzzle}
                 rerender={rerender}
                 isHint={hintState}
+                bookId={intialWITHBookData.id}
               />
               <Spacer />
             </div>
