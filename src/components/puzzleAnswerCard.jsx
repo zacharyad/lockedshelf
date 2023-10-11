@@ -82,12 +82,12 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
     <section
       className={`w-96 snap-top ${
         isError ? 'bg-red-500 animate-ping' : ''
-      } flex flex-col border-2 rounded-md border-slate-50 p-2 hover:border-slate-500 `}
+      } flex flex-col border-2 rounded-md border-slate-500 p-2 hover:border-slate-500 `}
     >
       <div
         className={`${
           isSolved ? 'bg-green-600 border-2' : ''
-        } p-2 rounded-md flex gap-4 flex-col items-center hover:-translate-y-1`}
+        } p-2 rounded-md flex gap-4 flex-col items-center hover:opacity-80`}
       >
         {tryCount > 0 ? <p>Attempts: {tryCount}</p> : <p></p>}
         <div className="">
@@ -107,7 +107,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
             </div>
           ) : (
             <form
-              className="flex flex-col items-center my-4 border-b-2  border-slate-50"
+              className="flex flex-col items-center my-4"
               onSubmit={handleSubmit(onSubmit)}
             >
               <label htmlFor="input">Answer: </label>
