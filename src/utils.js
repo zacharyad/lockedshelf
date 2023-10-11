@@ -30,3 +30,20 @@ export function handleResetPuzzles(rerender) {
   rerender((prev) => !prev);
   window.location.reload();
 }
+
+export function findBookById(LsBooks, id) {
+  for (let i = 0; i < LsBooks.length; i++) {
+    if (LsBooks[i].id === id) {
+      console.log('FOUND BOOK IN FINDBYID FUNC: ', LsBooks[i]);
+      return LsBooks[i];
+    }
+  }
+}
+
+export function getTimeSolved(book) {
+  const timeStarted = new Date(book.timeStarted);
+  const timeEnded = new Date(book.timeEnded);
+  const totalTimeSpendSolvingString = timeFromMsToHMS(timeEnded - timeStarted);
+
+  return totalTimeSpendSolvingString;
+}

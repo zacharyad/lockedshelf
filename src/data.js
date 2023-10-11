@@ -37,3 +37,13 @@ export const with_puzzle_data = [
     difficulty: 'Hard',
   },
 ];
+
+export const intialWITHBookData = {
+  id: 0,
+  name: 'Whispers in the Hollow',
+  bookImage: '/assets/test.jpg',
+  isSolved: false,
+  href: '/withbook',
+  timeEnded: undefined,
+  timeStarted: new Date().toUTCString(),
+};
