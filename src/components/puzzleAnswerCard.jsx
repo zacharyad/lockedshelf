@@ -119,8 +119,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
                 type="submit"
               />
               <div>
-                <p>{errors.answer && <p>Error MSG</p>}</p>
-                <p>Difficulty: {difficulty}</p>
+                <p>{errors.answer && <p>Error MSG</p>}</p>={' '}
                 <p>
                   {tryCount > 5 && isHint && (
                     <p>
