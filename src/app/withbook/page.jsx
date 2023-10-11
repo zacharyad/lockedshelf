@@ -59,7 +59,7 @@ function WithMain() {
         'with-puzzle-data',
         JSON.stringify(with_puzzle_data)
       );
-      //localStorage.setItem('with-time-started', new Date().toUTCString());
+
       window.location.reload();
     }
   }, [rerendered]);

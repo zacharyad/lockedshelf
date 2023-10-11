@@ -14,7 +14,7 @@ function Winner({ rerender, bookName, bookId }) {
       const totalTimeSpendSolvingString = getTimeSolved(book);
       setTimeToSolve(totalTimeSpendSolvingString);
     }
-  }, []);
+  }, [bookId]);
 
   const handleResetPuzzles = () => {
     localStorage.removeItem('with-puzzle-data');
