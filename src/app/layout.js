@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
                 src="/assets/LOGO_in.png"
               />
             </Link>
+
             <Link className="pr-8" href="/#info">
               Info
             </Link>

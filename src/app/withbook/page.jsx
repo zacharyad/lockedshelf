@@ -2,6 +2,7 @@
 import PuzzleAnswerCard from '@/components/puzzleAnswerCard';
 import React, { useEffect, useState } from 'react';
 import Spacer from '@/components/spacer';
+import Winner from '@/components/winner';
 
 const puzzleData = [
   {
@@ -75,13 +76,18 @@ function WithMain() {
             LsBooks[i].isSolved = true;
           }
         }
+
         localStorage.setItem('books', JSON.stringify(LsBooks));
+
+        if (!localStorage.getItem('with-end-time')) {
+          localStorage.setItem('with-end-time', new Date().toUTCString());
+        }
       }
 
       setIsWinner(winner);
     } else {
       localStorage.setItem('with-puzzle-data', JSON.stringify(puzzleData));
-      localStorage.setItem('time-started', new Date().toUTCString());
+      localStorage.setItem('with-time-started', new Date().toUTCString());
       window.location.reload();
     }
   }, [rerendered]);
@@ -138,12 +144,7 @@ function WithMain() {
   };
 
   if (isWinner) {
-    return (
-      <div>
-        <p>Congrats you won.</p>
-        <button onClick={handleResetPuzzles}>Reset</button>
-      </div>
-    );
+    return <Winner rerender={rerender} bookName="Whispers in the Hollow" />;
   }
 
   return (
