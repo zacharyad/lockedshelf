@@ -197,7 +197,7 @@ function WithMain() {
           </button>
           <label
             htmlFor="Toggle1"
-            className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
+            className="inline-flex items-center space-x-4 cursor-pointer"
           >
             <span>Hints After Five Puzzle Attempts:</span>
             <span className="relative">
@@ -207,8 +207,8 @@ function WithMain() {
                 onChange={toggleHints}
                 className="hidden peer"
               />
-              <div className="w-8 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-green-400"></div>
-              <div className="absolute inset-y-0  left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+              <div className="w-8 h-6 rounded-full shadow-inner bg-gray-400 peer-checked:bg-green-400"></div>
+              <div className="absolute inset-y-0 bg-slate-100 peer-checked:bg-slate-900 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto"></div>
             </span>
           </label>
         </div>
