@@ -46,4 +46,5 @@ export const intialWITHBookData = {
   href: '/withbook',
   timeEnded: undefined,
   timeStarted: new Date().toUTCString(),
+  amazonWebAddress: 'https://www.amazon.com',
 };
