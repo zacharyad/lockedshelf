@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
+import { timeFromMsToHMS } from '../utils';
 
 function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
   const [isError, setIsError] = useState(false);
@@ -26,20 +27,6 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
     difficulty,
   } = puzzle;
 
-  function timeFromMsToHMS(ms) {
-    const seconds = Number(ms / 1000);
-    var d = Math.floor(seconds / (3600 * 24));
-    var h = Math.floor((seconds % (3600 * 24)) / 3600);
-    var m = Math.floor((seconds % 3600) / 60);
-    var s = Math.floor(seconds % 60);
-
-    var dDisplay = d > 0 ? d + (d == 1 ? ' day, ' : ' days, ') : '';
-    var hDisplay = h > 0 ? h + (h == 1 ? ' hour, ' : ' hours, ') : '';
-    var mDisplay = m > 0 ? m + (m == 1 ? ' minute, ' : ' minutes, ') : '';
-    var sDisplay = s > 0 ? s + (s == 1 ? ' second' : ' seconds') : '';
-    return dDisplay + hDisplay + mDisplay + sDisplay;
-  }
-
   const onSubmit = (data) => {
     if (data.answer.trim() === '') return;
     // write to local storage to increase tryCount
@@ -52,7 +39,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender }) {
       // write to localStorage to flip isSolved to true
       // timeSolved to be eual to new Date()
       const timeSince =
-        new Date() - new Date(localStorage.getItem('time-started'));
+        new Date() - new Date(localStorage.getItem('with-time-started'));
 
       currPuzzle.timeSolved = timeFromMsToHMS(timeSince);
       currPuzzle.isSolved = true;
