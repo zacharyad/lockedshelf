@@ -8,6 +8,8 @@ export default function Home() {
       <main className="flex h-screen -mb-32 md:-mb-2 md:min-h-[500px] flex-col  items-center gap-4">
         <div className="absolute top-42 left-0 right-0 text-2xl text-slate-700 w-screen flex flex-col items-center text-center">
           <Image
+            priority
+            alt="Locked Shelf Book Series Logo"
             className="w-5/6 md:w-5/12"
             src="/assets/LOGO.png"
             width={600}
