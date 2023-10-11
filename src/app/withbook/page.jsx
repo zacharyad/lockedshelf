@@ -3,51 +3,12 @@ import PuzzleAnswerCard from '@/components/puzzleAnswerCard';
 import React, { useEffect, useState } from 'react';
 import Spacer from '@/components/spacer';
 import Winner from '@/components/winner';
-
-const puzzleData = [
-  {
-    id: 0,
-    name: 'Spine',
-    imageSrc: '/assets/test.jpg',
-    imageAlt: 'image that has the letters 1P1U2Z1L1E',
-    isSolved: false,
-    answers: ['mr. van tassel', 'van tassel', 'mr van tassel'],
-    timeSolved: undefined,
-    tryCount: 0,
-    hint: 'Use the numbers next to letters to give about of that letter found in final word. The letters sort of go in order.',
-    difficulty: 'Low',
-  },
-  {
-    id: 1,
-    name: 'MHK Map',
-    imageSrc: '/assets/test.jpg',
-    imageAlt: 'image of an outlined shape',
-    isSolved: false,
-    answers: ['1233'],
-    timeSolved: undefined,
-    tryCount: 0,
-    hint: 'the places give you a number based on the map',
-    difficulty: 'Medium',
-  },
-  {
-    id: 2,
-    name: 'Math',
-    imageSrc: '/assets/test.jpg',
-    imageAlt:
-      'Images has text that has a triangle with addition sign followed by a 4',
-    isSolved: false,
-    answers: ['00000'],
-    timeSolved: new Date(),
-    tryCount: 0,
-    hint: 'the places give you a number based on the map',
-    difficulty: 'Hard',
-  },
-];
-
+import { isAlreadyABookInLs, handleResetPuzzles } from '../../utils';
+import { with_puzzle_data } from '../../data';
 function WithMain() {
   const [LsPuzzleData, setPuzzleData] = useState(null);
   const [rerendered, rerender] = useState(false);
-  let [isWinner, setIsWinner] = useState(false);
+  const [isWinner, setIsWinner] = useState(false);
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -86,7 +47,10 @@ function WithMain() {
 
       setIsWinner(winner);
     } else {
-      localStorage.setItem('with-puzzle-data', JSON.stringify(puzzleData));
+      localStorage.setItem(
+        'with-puzzle-data',
+        JSON.stringify(with_puzzle_data)
+      );
       localStorage.setItem('with-time-started', new Date().toUTCString());
       window.location.reload();
     }
@@ -98,30 +62,11 @@ function WithMain() {
     setHintState(!hintState);
   };
 
-  const handleResetPuzzles = () => {
-    localStorage.removeItem('with-puzzle-data');
-    localStorage.removeItem('books');
-    rerender((prev) => !prev);
-    window.location.reload();
-  };
-
   const handleDialogOpen = () => {
     const dialog = document.getElementById('resetDialog');
     if (dialog) {
     }
     dialog.showModal();
-  };
-
-  const isAlreadyABookInLs = (bookName) => {
-    if (!books) return false;
-
-    for (let i = 0; i < books.length; i++) {
-      if (books[i].name === bookName) {
-        // Already has this book.
-        return true;
-      }
-    }
-    return false;
   };
 
   const handleAddingBookToShelf = () => {
@@ -136,7 +81,7 @@ function WithMain() {
     if (!LsBooks) {
       localStorage.setItem('books', JSON.stringify([withBookData]));
     } else {
-      if (isAlreadyABookInLs('Whispers in the Hollow')) return;
+      if (isAlreadyABookInLs('Whispers in the Hollow', books)) return;
 
       LsBooks.push(withBookData);
       localStorage.setItem('books', JSON.stringify(LsBooks));
@@ -175,7 +120,7 @@ function WithMain() {
         <div className="flex gap-12 my-4">
           <button
             className="bg-red-600 text-white rounded-md py-2 px-4"
-            onClick={handleResetPuzzles}
+            onClick={() => handleResetPuzzles(rerender)}
           >
             Reset All Puzzles
           </button>

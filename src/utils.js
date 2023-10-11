@@ -11,3 +11,22 @@ export function timeFromMsToHMS(ms) {
   var sDisplay = s > 0 ? s + (s == 1 ? ' second' : ' seconds') : '';
   return dDisplay + hDisplay + mDisplay + sDisplay;
 }
+
+export const isAlreadyABookInLs = (bookName, books) => {
+  if (!books) return false;
+
+  for (let i = 0; i < books.length; i++) {
+    if (books[i].name === bookName) {
+      // Already has this book.
+      return true;
+    }
+  }
+  return false;
+};
+
+export function handleResetPuzzles(rerender) {
+  localStorage.removeItem('with-puzzle-data');
+  localStorage.removeItem('books');
+  rerender((prev) => !prev);
+  window.location.reload();
+}
