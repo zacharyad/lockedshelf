@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Spacer from '@/components/spacer';
 import Winner from '@/components/winner';
 import {
-  handleResetPuzzles,
   isBookSolved,
   getBook,
   handleAddingBookToShelf,

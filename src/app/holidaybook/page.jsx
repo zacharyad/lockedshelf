@@ -104,12 +104,6 @@ function WithMain() {
 
       {LsPuzzleData && (
         <div className="flex flex-col gap-12">
-          <button
-            className="bg-orange-600 py-2 px-4 rounded-md relative bottom-0 left-auto right-auto"
-            onClick={handleDialogOpen}
-          >
-            Reset All Answers
-          </button>
           <label
             htmlFor="Toggle1"
             className="inline-flex items-center space-x-4 cursor-pointer"
