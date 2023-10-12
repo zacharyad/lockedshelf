@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { booksUserDoesNotHave } from '@/utils';
+import { allBooks } from '@/data';
 
 function BookShelf() {
   const [books, setBooks] = useState([]);
@@ -28,12 +30,7 @@ function BookShelf() {
       <section className="bg-slate-300 w-full flex flex-col items-center gap-4 p-4">
         {books.length !== 0 &&
           books.map((book) => {
-            let won = books.reduce((acc, puzzle) => {
-              if (puzzle.isSolved === false) acc = false;
-              return acc;
-            }, true);
-
-            console.log('Won ', won);
+            let won = book.isSolved;
 
             return (
               <div
@@ -58,31 +55,35 @@ function BookShelf() {
               </div>
             );
           })}
-        {books.length === 0 && (
-          <a target="_blank" href={'https://amazon.com'}>
-            <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
-              <h3>Whispers in the Hollow</h3>
-              <Image
-                alt={`Image for Whispers in the Hollow book found on Amazon.com for purchase`}
-                width={300}
-                height={300}
-                src={'/assets/test.jpg'}
-                className="rounded-md my-4"
-              />
-            </div>
-          </a>
-        )}
-        <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
-          <h3 className="italic">More Coming Soon!</h3>
 
-          <Image
-            alt={`Coming soon image`}
-            width={300}
-            height={300}
-            src={'/assets/test.jpg'}
-            className="rounded-md my-4"
-          />
-        </div>
+        {booksUserDoesNotHave(books, allBooks).map((book) => {
+          return (
+            <a key={book.name} target="_blank" href={book.amazonWebAddress}>
+              <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
+                <h3 className="text-white text-lg">{book.name}</h3>
+                <Image
+                  alt={`Image for Whispers in the Hollow book found on Amazon.com for purchase`}
+                  width={300}
+                  height={300}
+                  src={'/assets/test.jpg'}
+                  className="rounded-md my-4"
+                />
+              </div>
+            </a>
+          );
+        })}
+        <a target="_blank" href={'https://www.amazon.com'}>
+          <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
+            <h3 className="text-white text-lg">See The Series!</h3>
+            <Image
+              alt={`Image for Whispers in the Hollow book found on Amazon.com for purchase`}
+              width={300}
+              height={300}
+              src={'/assets/test.jpg'}
+              className="rounded-md my-4"
+            />
+          </div>
+        </a>
       </section>
     </div>
   );

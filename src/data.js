@@ -150,3 +150,5 @@ export const intialHolidayBookData = {
     },
   ],
 };
+
+export const allBooks = [intialWITHBookData, intialHolidayBookData];

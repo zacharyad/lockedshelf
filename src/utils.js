@@ -25,13 +25,10 @@ export const isAlreadyABookInLs = (bookName, books) => {
 };
 
 export function handleResetPuzzles(rerender, bookId) {
-  if (!bookId) {
-    localStorage.removeItem('books');
-  } else {
-    const lsBooks = JSON.parse(localStorage.getItem('books'));
-    let newLsBooks = lsBooks.filter((book) => book.id !== bookId);
-    localStorage.setItem('books', newLsBooks);
-  }
+  const lsBooks = JSON.parse(localStorage.getItem('books'));
+  let newLsBooks = lsBooks.filter((book) => book.id !== bookId);
+  localStorage.setItem('books', newLsBooks);
+
   rerender((prev) => !prev);
   window.location.reload();
 }
@@ -90,4 +87,16 @@ export function wonBook(books, book) {
   localStorage.setItem('books', JSON.stringify(books));
 
   return book;
+}
+
+export function booksUserDoesNotHave(usersBooks, allBooks) {
+  if (!usersBooks) return allBooks;
+  let retArr = [];
+  let usersIds = usersBooks.map((book) => book.id);
+
+  for (let i = 0; i < allBooks.length; i++) {
+    if (!usersIds.includes(allBooks[i].id)) retArr.push(allBooks[i]);
+  }
+
+  return retArr;
 }

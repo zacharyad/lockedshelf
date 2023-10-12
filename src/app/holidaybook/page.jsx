@@ -89,7 +89,7 @@ function WithMain() {
         <div className="flex gap-12 my-4">
           <button
             className="bg-red-600 text-white rounded-md py-2 px-4"
-            onClick={() => handleResetPuzzles(rerender, bookId)}
+            onClick={() => handleResetPuzzles(rerender, 1)}
           >
             Reset All Puzzles
           </button>

@@ -53,16 +53,14 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
       }, 1000);
     }
 
-    let newData = book.puzzles.map((puzzle) => {
+    let newPuzzleArray = book.puzzles.map((puzzle) => {
       if (puzzle.id === id) {
         return currPuzzle;
       }
       return puzzle;
     });
 
-    book.puzzles = newData;
-
-    console.log(lsBooks);
+    book.puzzles = newPuzzleArray;
 
     localStorage.setItem('books', JSON.stringify(lsBooks));
 

@@ -89,32 +89,8 @@ function WithMain() {
         <p>Loading</p>
       )}
 
-      <dialog id="resetDialog" className="p-4 rounded-md items-center">
-        <p>Are you sure you want to reset all</p>
-        <div className="flex gap-12 my-4">
-          <button
-            className="bg-red-600 text-white rounded-md py-2 px-4"
-            onClick={() => handleResetPuzzles(rerender, bookId)}
-          >
-            Reset All Puzzles
-          </button>
-          <button
-            className="border-2 rounded-md py-2 px-4"
-            onClick={() => document.getElementById('resetDialog').close()}
-          >
-            Close
-          </button>
-        </div>
-      </dialog>
-
       {LsPuzzleData && (
         <div className="flex flex-col gap-12">
-          <button
-            className="bg-orange-600 py-2 px-4 rounded-md relative bottom-0 left-auto right-auto"
-            onClick={handleDialogOpen}
-          >
-            Reset All Answers
-          </button>
           <label
             htmlFor="Toggle1"
             className="inline-flex items-center space-x-4 cursor-pointer"
