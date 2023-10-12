@@ -33,6 +33,8 @@ function BookShelf() {
               return acc;
             }, true);
 
+            console.log('Won ', won);
+
             return (
               <div
                 key={book.name}

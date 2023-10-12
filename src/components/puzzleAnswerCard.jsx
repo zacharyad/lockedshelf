@@ -32,7 +32,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
     if (data.answer.trim() === '') return;
 
     let lsBooks = JSON.parse(localStorage.getItem('books'));
-    let book = getBook(lsBooks, 0);
+    let book = getBook(lsBooks, bookId);
     let currPuzzle = book.puzzles.filter((puzzle) => puzzle.id === id)[0];
     // increasing count for each try
     currPuzzle.tryCount = currPuzzle.tryCount + 1;

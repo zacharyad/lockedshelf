@@ -28,6 +28,9 @@ export function handleResetPuzzles(rerender, bookId) {
   if (!bookId) {
     localStorage.removeItem('books');
   } else {
+    const lsBooks = JSON.parse(localStorage.getItem('books'));
+    let newLsBooks = lsBooks.filter((book) => book.id !== bookId);
+    localStorage.setItem('books', newLsBooks);
   }
   rerender((prev) => !prev);
   window.location.reload();
@@ -54,7 +57,7 @@ export function handleAddingBookToShelf(books, newBook) {
   if (!books) return [newBook];
 
   for (let i = 0; i < books.length; i++) {
-    if (books[i].id === newBook.id) return undefined;
+    if (books[i].id === newBook.id) return books;
   }
 
   books.push(newBook);
