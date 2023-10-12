@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
-import { timeFromMsToHMS, findBookById } from '../utils';
+import { timeFromMsToHMS, findBookById, getBook } from '../utils';
 
 function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
   const [isError, setIsError] = useState(false);
@@ -28,19 +28,18 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
   } = puzzle;
 
   const onSubmit = (data) => {
+    // Not allowing blank answers
     if (data.answer.trim() === '') return;
-    // write to local storage to increase tryCount
-    let oldData = JSON.parse(localStorage.getItem('with-puzzle-data'));
-    let currPuzzle = oldData.filter((puzzle) => puzzle.id === id)[0];
 
+    let lsBooks = JSON.parse(localStorage.getItem('books'));
+    let book = getBook(lsBooks, bookId);
+    let currPuzzle = book.puzzles.filter((puzzle) => puzzle.id === id)[0];
+    // increasing count for each try
     currPuzzle.tryCount = currPuzzle.tryCount + 1;
 
     if (answers.includes(data.answer.trim().toLowerCase())) {
       // write to localStorage to flip isSolved to true
       // timeSolved to be eual to new Date()
-      const LsBooks = JSON.parse(localStorage.getItem('books'));
-      const book = findBookById(LsBooks, 0);
-
       const timeSince = new Date() - new Date(book.timeStarted);
 
       currPuzzle.timeSolved = timeFromMsToHMS(timeSince);
@@ -54,14 +53,16 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
       }, 1000);
     }
 
-    let newData = oldData.map((puzzle) => {
+    let newPuzzleArray = book.puzzles.map((puzzle) => {
       if (puzzle.id === id) {
         return currPuzzle;
       }
       return puzzle;
     });
 
-    localStorage.setItem('with-puzzle-data', JSON.stringify(newData));
+    book.puzzles = newPuzzleArray;
+
+    localStorage.setItem('books', JSON.stringify(lsBooks));
 
     reset();
     rerender((prev) => !prev);
