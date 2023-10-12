@@ -24,9 +24,11 @@ export const isAlreadyABookInLs = (bookName, books) => {
   return false;
 };
 
-export function handleResetPuzzles(rerender) {
-  localStorage.removeItem('with-puzzle-data');
-  localStorage.removeItem('books');
+export function handleResetPuzzles(rerender, bookId) {
+  if (!bookId) {
+    localStorage.removeItem('books');
+  } else {
+  }
   rerender((prev) => !prev);
   window.location.reload();
 }
@@ -46,4 +48,43 @@ export function getTimeSolved(book) {
   const totalTimeSpendSolvingString = timeFromMsToHMS(timeEnded - timeStarted);
 
   return totalTimeSpendSolvingString;
+}
+
+export function handleAddingBookToShelf(books, newBook) {
+  if (!books) return [newBook];
+
+  for (let i = 0; i < books.length; i++) {
+    if (books[i].id === newBook.id) return undefined;
+  }
+
+  books.push(newBook);
+  return books;
+}
+
+export function getBook(books, bookId) {
+  if (!books) return null;
+  for (let i = 0; i < books.length; i++) {
+    if (books[i].id === bookId) return books[i];
+  }
+
+  return null;
+}
+
+export function isBookSolved(book) {
+  return book.reduce((acc, puzzle) => {
+    if (puzzle.isSolved === false) acc = false;
+    return acc;
+  }, true);
+}
+
+export function wonBook(books, book) {
+  book.isSolved = true;
+
+  if (book.timeEnded === undefined) {
+    book.timeEnded = new Date().toUTCString();
+  }
+
+  localStorage.setItem('books', JSON.stringify(books));
+
+  return book;
 }
