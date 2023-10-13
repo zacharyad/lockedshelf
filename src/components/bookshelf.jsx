@@ -18,15 +18,17 @@ function BookShelf() {
 
   return (
     <div id="bookShelf" className="">
-      {books.length !== 0 ? (
-        <h2 className="text-center p-4 text-5xl  bg-slate-300 text-black">
-          Your Locked Shelf
-        </h2>
-      ) : (
-        <h2 className="text-center p-4 text-5xl  bg-slate-300 text-black">
-          The Locked Shelf
-        </h2>
-      )}
+      <div className="pt-8  bg-slate-300">
+        {books.length !== 0 ? (
+          <h2 className="text-center p-4 text-5xl  text-black">
+            Your Locked Shelf
+          </h2>
+        ) : (
+          <h2 className="text-center p-4 text-5xl  text-black">
+            The Locked Shelf
+          </h2>
+        )}
+      </div>
       <section className="bg-slate-300 w-full flex flex-col items-center gap-4 p-4">
         {books.length !== 0 &&
           books.map((book) => {
