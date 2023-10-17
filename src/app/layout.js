@@ -27,10 +27,11 @@ export default function RootLayout({ children }) {
             </Link>
             <div className="mr-8">
               <Link
-                className="border-2 px-2 py-1 text-center bg-slate-200 border-blue-800 text-blue-800 rounded-md"
-                href="/#info"
+                href="https://www.amazon.com"
+                target="_blank"
+                className="border-2 px-2 text-[1rem] py-1 text-center bg-slate-200 border-blue-800 text-blue-800 rounded-md"
               >
-                Info
+                Buy on Amazon
               </Link>
             </div>
           </div>

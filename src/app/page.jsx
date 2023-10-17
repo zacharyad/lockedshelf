@@ -3,6 +3,7 @@ import BookShelf from '../components/bookshelf';
 import InfoSection from '../components/infoSection';
 import Faqs from '@/components/faqs';
 import Spacer from '@/components/spacer';
+import Link from 'next/link';
 export default function Home() {
   return (
     <div>
@@ -22,20 +23,21 @@ export default function Home() {
             for you to seek out and solve
           </p>
           <Spacer size={24} />
-          <a
-            href="https://www.amazon.com"
-            target="_blank"
+
+          <Link
+            href="#bookShelf"
             className=" border-2 px-6 py-2 text-slate-100 bg-blue-800 rounded-md"
           >
-            Buy a book
-          </a>
-          <Spacer size={24} />
-          <a
-            href="#bookShelf"
-            className=" border-2 px-6 py-2 bg-slate-200 border-blue-800 text-blue-800 rounded-md"
-          >
             See Locked Books
-          </a>
+          </Link>
+
+          <Spacer size={24} />
+          <Link
+            className="border-2 px-2 py-1 text-center text-black bg-opacity-0 border-black rounded-md"
+            href="/#info"
+          >
+            Learn More
+          </Link>
         </div>
       </main>
       <BookShelf />
