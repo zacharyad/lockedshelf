@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
         <Spacer size={8} />
         <main>{children}</main>
         <Spacer size={32} />
-        <footer className="border-t-2 backdrop-blur-xl   border-slate-800 border-opacity-70 bg-inherit opacity-80 text-sm p-8">
+        <footer className="border-t-2  backdrop-blur-xl border-slate-800 border-opacity-70 bg-inherit opacity-80 text-sm p-4">
           copyright 2023
         </footer>
       </body>

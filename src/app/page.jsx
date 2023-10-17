@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import BookShelf from '../components/bookshelf';
 import InfoSection from '../components/infoSection';
+import Faqs from '@/components/faqs';
 import Spacer from '@/components/spacer';
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
       </main>
       <BookShelf />
       <InfoSection />
+      <Faqs />
     </div>
   );
 }
