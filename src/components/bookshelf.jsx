@@ -37,21 +37,24 @@ function BookShelf() {
             return (
               <div
                 key={book.name}
-                className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center hover:opacity-90"
+                className="h-96 m-auto border-2  rounded-md py-4 text-center bg-slate-200 hover:opacity-90"
               >
-                <Link href={book.href}>
-                  <h3 className="font-bold text-lg">{book.name}</h3>
+                <Link href={book.href} className="flex flex-col items-center">
+                  <h3 className="font-bold text-lg w-64 flex justify-center text-center">
+                    {book.name}
+                  </h3>
                   {won ? (
                     <p className="text-green-400">Completed</p>
                   ) : (
                     <p className="text-orange-400">Not Completed</p>
                   )}
+
                   <Image
                     alt={`Image for the book, "${book.name}"`}
                     width={300}
                     height={300}
                     src={book.bookImage}
-                    className="rounded-md my-4"
+                    className="rounded-md"
                   />
                 </Link>
               </div>
@@ -61,27 +64,31 @@ function BookShelf() {
         {booksUserDoesNotHave(books, allBooks).map((book) => {
           return (
             <a key={book.name} target="_blank" href={book.amazonWebAddress}>
-              <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
-                <h3 className="text-white text-lg">{book.name}</h3>
+              <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 flex flex-col items-center text-center hover:opacity-90">
+                <h3 className="text-white text-lg w-64 text-center">
+                  {book.name}
+                </h3>
                 <Image
                   alt={`Image for Whispers in the Hollow book found on Amazon.com for purchase`}
                   width={300}
                   height={300}
                   src={'/assets/test.jpg'}
-                  className="rounded-md my-4"
+                  className="rounded-md shadow-xl shadow-slate-500"
                 />
               </div>
             </a>
           );
         })}
         <a target="_blank" href={'https://www.amazon.com'}>
-          <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
-            <h3 className="text-white text-lg">See The Series!</h3>
+          <div className="bg-slate-700 h-96 m-auto border-2 rounded-md text-center flex flex-col items-center p-8">
+            <h3 className="text-white text-md">
+              Check out our current Locked Shelf books on Amazon
+            </h3>
             <Image
               alt={`Image for Whispers in the Hollow book found on Amazon.com for purchase`}
-              width={300}
-              height={300}
-              src={'/assets/test.jpg'}
+              width={250}
+              height={250}
+              src={'/assets/bookshelf.png'}
               className="rounded-md my-4"
             />
           </div>

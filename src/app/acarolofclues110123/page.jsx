@@ -16,7 +16,7 @@ function WithMain() {
   const [LsPuzzleData, setPuzzleData] = useState(null);
   const [rerendered, rerender] = useState(false);
   const [isWinner, setIsWinner] = useState(false);
-  const [books, setBooks] = useState([]);
+  const [_books, setBooks] = useState([]);
   const [hintState, setHintState] = useState(false);
 
   useEffect(() => {
@@ -62,7 +62,9 @@ function WithMain() {
 
   return (
     <div className="flex flex-col items-center snap-y snap-proximity ">
-      <h1 className="text-3xl mb-12 border-b-2 p-2">Holiday Tale</h1>
+      <h1 className="text-3xl mb-12 border-b-2 p-2">
+        {intialHolidayBookData.name}
+      </h1>
 
       <Spacer size={24} />
 

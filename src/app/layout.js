@@ -39,6 +39,12 @@ export default function RootLayout({ children }) {
         <Spacer size={8} />
         <main>{children}</main>
         <Spacer size={32} />
+        <Link
+          className=" flex justify-center rounded-md m-8 py-2 px-4 shadow-inner bg-slate-200 border-2 border-slate-400"
+          href="/"
+        >
+          Back to Top
+        </Link>
         <footer className="border-t-2  backdrop-blur-xl border-slate-800 border-opacity-70 bg-inherit opacity-80 text-sm p-4">
           copyright 2023
         </footer>

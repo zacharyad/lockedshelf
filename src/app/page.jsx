@@ -33,7 +33,7 @@ export default function Home() {
 
           <Spacer size={24} />
           <Link
-            className="border-2 px-2 py-1 text-center text-black bg-opacity-0 border-black rounded-md"
+            className="border-2 px-6 py-1 text-center text-black bg-opacity-0 border-black rounded-md"
             href="/#info"
           >
             Learn More
