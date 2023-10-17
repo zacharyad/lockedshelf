@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { BsArrowDownShort } from 'react-icons/bs';
 import { HiOutlineLockOpen } from 'react-icons/hi';
 
@@ -9,7 +10,13 @@ export default function InfoSection() {
       {/* Step one */}
       <div className="max-w-sm text-white  rounded-lg shadow bg-blue-700 border-gray-700">
         <a href="#">
-          <img className="rounded-t-lg" src="/assets/stepone.png" alt="" />
+          <Image
+            width={600}
+            height={600}
+            className="rounded-t-lg"
+            src="/assets/stepone.png"
+            alt="Image of a book with the title of buy a book"
+          />
         </a>
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
@@ -18,7 +25,7 @@ export default function InfoSection() {
 
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-300">
             Buy a book. The book ships. You have the Book. Now find the QR
-            code/Link to access that book's Answer entry page.
+            code/Link to access that book&lsquo;s Answer entry page.
           </p>
           <a
             href="https://www.amazon.com"
@@ -49,7 +56,13 @@ export default function InfoSection() {
 
       <div className="max-w-sm text-white  rounded-lg shadow bg-blue-700 border-gray-700">
         <a href="#">
-          <img className="rounded-t-lg" src="/assets/steptwo.png" alt="" />
+          <Image
+            width={600}
+            height={600}
+            className="rounded-t-lg"
+            src="/assets/steptwo.png"
+            alt="Image of a person reading a book with puzzle symbols around his head"
+          />
         </a>
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -57,7 +70,7 @@ export default function InfoSection() {
           </h5>
           <p className="mb-3 font-normal text-gray-300">
             Find puzzles in the book that connect with the puzzles inputs on the
-            book's answer entry page.
+            book&lsquo;s answer entry page.
             <br />
             <span className="italic">
               <span className="font-bold">For Example: </span>If a puzzle has to
@@ -71,7 +84,13 @@ export default function InfoSection() {
       {/* Step 3 */}
       <div className="max-w-sm text-white  rounded-lg shadow bg-blue-700 border-gray-700">
         <a href="#">
-          <img className="rounded-t-lg" src="/assets/stepthree.png" alt="" />
+          <Image
+            width={600}
+            height={600}
+            className="rounded-t-lg"
+            src="/assets/stepthree.png"
+            alt="Image of a hand hovering over a book with a complete jigsaw drawing inside the pages of the book"
+          />
         </a>
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
