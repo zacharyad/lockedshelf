@@ -16,7 +16,7 @@ function WithMain() {
   const [LsPuzzleData, setPuzzleData] = useState(null);
   const [rerendered, rerender] = useState(false);
   const [isWinner, setIsWinner] = useState(false);
-  const [books, setBooks] = useState([]);
+  const [_books, setBooks] = useState([]);
   const [hintState, setHintState] = useState(false);
 
   useEffect(() => {
