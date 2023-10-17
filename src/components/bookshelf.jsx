@@ -74,7 +74,7 @@ function BookShelf() {
             </a>
           );
         })}
-        <a target="_blank" href={'https://www.amazon.com'}>
+        {/* <a target="_blank" href={'https://www.amazon.com'}>
           <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 text-center">
             <h3 className="text-white text-lg">See The Series!</h3>
             <Image
@@ -85,7 +85,7 @@ function BookShelf() {
               className="rounded-md my-4"
             />
           </div>
-        </a>
+        </a> */}
       </section>
     </div>
   );

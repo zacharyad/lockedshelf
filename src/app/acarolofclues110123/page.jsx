@@ -62,7 +62,9 @@ function WithMain() {
 
   return (
     <div className="flex flex-col items-center snap-y snap-proximity ">
-      <h1 className="text-3xl mb-12 border-b-2 p-2">Holiday Tale</h1>
+      <h1 className="text-3xl mb-12 border-b-2 p-2">
+        {intialHolidayBookData.name}
+      </h1>
 
       <Spacer size={24} />
 

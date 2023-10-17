@@ -90,7 +90,7 @@ export const intialWITHBookData = {
 
 export const intialHolidayBookData = {
   id: 1,
-  name: 'Holiday Tale',
+  name: 'A Carol of Clues',
   bookImage: '/assets/test.jpg',
   isSolved: false,
   href: '/acarolofclues110123',
@@ -151,7 +151,7 @@ export const intialHolidayBookData = {
   ],
 };
 
-export const allBooks = [intialWITHBookData, intialHolidayBookData];
+export const allBooks = [intialHolidayBookData];
 
 export const faqs = [
   { question: '1', answer: 'one' },
