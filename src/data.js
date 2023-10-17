@@ -51,9 +51,11 @@ export const intialWITHBookData = {
 export const intialHolidayBookData = {
   id: 1,
   name: 'A Carol of Clues',
-  bookImage: '/assets/test.jpg',
+  bookImage: '/assets/acarolofclues.png',
   isSolved: false,
   href: '/acarolofclues110123',
+  imageAlt:
+    'Image of a bearded Scrooge holding a key on the right side of the image and a door with wreaths all around it with people exiting the doow to a snowy scene',
   timeEnded: undefined,
   timeStarted: new Date().toUTCString(),
   amazonWebAddress: 'https://www.amazon.com',
@@ -61,7 +63,7 @@ export const intialHolidayBookData = {
     {
       id: 0,
       name: 'Spine',
-      imageSrc: '/assets/test.jpg',
+      imageSrc: '/assets/acarolofclues.png',
       imageAlt: 'image that has the letters 1P1U2Z1L1E',
       isSolved: false,
       answers: ['1'],
@@ -73,7 +75,7 @@ export const intialHolidayBookData = {
     {
       id: 1,
       name: 'MHK Map',
-      imageSrc: '/assets/test.jpg',
+      imageSrc: '/assets/acarolofclues.png',
       imageAlt: 'image of an outlined shape',
       isSolved: false,
       answers: ['2'],
@@ -85,7 +87,7 @@ export const intialHolidayBookData = {
     {
       id: 2,
       name: 'Math',
-      imageSrc: '/assets/test.jpg',
+      imageSrc: '/assets/acarolofclues.png',
       imageAlt:
         'Images has text that has a triangle with addition sign followed by a 4',
       isSolved: false,
@@ -98,7 +100,7 @@ export const intialHolidayBookData = {
     {
       id: 3,
       name: 'Math',
-      imageSrc: '/assets/test.jpg',
+      imageSrc: '/assets/acarolofclues.png',
       imageAlt:
         'Images has text that has a triangle with addition sign followed by a 4',
       isSolved: false,
