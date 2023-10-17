@@ -4,15 +4,16 @@ import { faqs } from '../data';
 
 function Faqs() {
   return (
-    <section id="info" className="">
+    <section className="border-t-2 pt-2">
       <div className="pt-8  bg-inherit p-12">
-        <h2 className="text-center p-4 text-5xl text-black">How it works:</h2>
-
         <h2 className="text-center p-4 text-5xl  text-black">FAQ</h2>
         {faqs.length >= 0 &&
           faqs.map(({ question, answer }) => {
             return (
-              <details className="bg-gray-300 open:bg-amber-200 duration-300 my-4 border-2 ">
+              <details
+                key={question}
+                className="bg-blue-700 open:bg-green-500 text-white open:text-black duration-300 my-4 border-2 "
+              >
                 <summary className="bg-inherit px-5 py-3 text-lg cursor-pointer">
                   {question}
                 </summary>

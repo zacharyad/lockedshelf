@@ -6,7 +6,7 @@ import Spacer from '@/components/spacer';
 export default function Home() {
   return (
     <div>
-      <main className="flex h-screen -mb-32 md:-mb-2 md:min-h-[500px] flex-col  items-center gap-4">
+      <main className="flex h-screen -mb-32 md:-mb-2 md:min-h-[500px] flex-col items-center gap-4">
         <div className="absolute top-42 left-0 right-0 text-2xl text-slate-700 w-screen flex flex-col items-center text-center">
           <Image
             priority
@@ -23,10 +23,18 @@ export default function Home() {
           </p>
           <Spacer size={24} />
           <a
-            href="#bookShelf"
-            className=" border-2 px-6 py-2 bg-slate-300 rounded-md"
+            href="https://www.amazon.com"
+            target="_blank"
+            className=" border-2 px-6 py-2 text-slate-100 bg-blue-800 rounded-md"
           >
-            See current books
+            Buy a book
+          </a>
+          <Spacer size={24} />
+          <a
+            href="#bookShelf"
+            className=" border-2 px-6 py-2 bg-slate-200 border-blue-800 text-blue-800 rounded-md"
+          >
+            See Locked Books
           </a>
         </div>
       </main>
