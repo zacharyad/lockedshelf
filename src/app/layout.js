@@ -25,16 +25,21 @@ export default function RootLayout({ children }) {
                 src="/assets/LOGO_in.png"
               />
             </Link>
-
-            <Link className="pr-8" href="/#info">
-              Info
-            </Link>
+            <div className="mr-8">
+              <Link
+                href="https://www.amazon.com"
+                target="_blank"
+                className="border-2 px-2 text-[1rem] py-1 text-center bg-slate-200 border-blue-800 text-blue-800 rounded-md"
+              >
+                Buy on Amazon
+              </Link>
+            </div>
           </div>
         </nav>
         <Spacer size={8} />
         <main>{children}</main>
         <Spacer size={32} />
-        <footer className="border-t-2 backdrop-blur-xl  border-slate-800 border-opacity-70 bg-inherit opacity-80 text-sm p-8">
+        <footer className="border-t-2  backdrop-blur-xl border-slate-800 border-opacity-70 bg-inherit opacity-80 text-sm p-4">
           copyright 2023
         </footer>
       </body>

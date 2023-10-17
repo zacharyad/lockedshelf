@@ -152,3 +152,8 @@ export const intialHolidayBookData = {
 };
 
 export const allBooks = [intialWITHBookData, intialHolidayBookData];
+
+export const faqs = [
+  { question: '1', answer: 'one' },
+  { question: '2', answer: 'two' },
+];

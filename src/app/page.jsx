@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import BookShelf from '../components/bookshelf';
 import InfoSection from '../components/infoSection';
+import Faqs from '@/components/faqs';
 import Spacer from '@/components/spacer';
+import Link from 'next/link';
 export default function Home() {
   return (
     <div>
-      <main className="flex h-screen -mb-32 md:-mb-2 md:min-h-[500px] flex-col  items-center gap-4">
+      <main className="flex h-screen -mb-32 md:-mb-2 md:min-h-[500px] flex-col items-center gap-4">
         <div className="absolute top-42 left-0 right-0 text-2xl text-slate-700 w-screen flex flex-col items-center text-center">
           <Image
             priority
@@ -21,16 +23,26 @@ export default function Home() {
             for you to seek out and solve
           </p>
           <Spacer size={24} />
-          <a
+
+          <Link
             href="#bookShelf"
-            className=" border-2 px-6 py-2 bg-slate-300 rounded-md"
+            className=" border-2 px-6 py-2 text-slate-100 bg-blue-800 rounded-md"
           >
-            See current books
-          </a>
+            See Locked Books
+          </Link>
+
+          <Spacer size={24} />
+          <Link
+            className="border-2 px-2 py-1 text-center text-black bg-opacity-0 border-black rounded-md"
+            href="/#info"
+          >
+            Learn More
+          </Link>
         </div>
       </main>
       <BookShelf />
       <InfoSection />
+      <Faqs />
     </div>
   );
 }
