@@ -9,15 +9,14 @@ export default function InfoSection() {
       <BsArrowDownShort className="w-32 h-32 mx-auto" />
       {/* Step one */}
       <div className="max-w-sm text-white  rounded-lg shadow bg-blue-700 border-gray-700">
-        <a href="#">
-          <Image
-            width={600}
-            height={600}
-            className="rounded-t-lg"
-            src="/assets/stepone.png"
-            alt="Image of a book with the title of buy a book"
-          />
-        </a>
+        <Image
+          width={600}
+          height={600}
+          className="rounded-t-lg"
+          src="/assets/stepone.png"
+          alt="Image of a book with the title of buy a book"
+        />
+
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
             Buy a Book!
@@ -55,15 +54,14 @@ export default function InfoSection() {
       <BsArrowDownShort className="w-32 h-32 mx-auto" />
 
       <div className="max-w-sm text-white  rounded-lg shadow bg-blue-700 border-gray-700">
-        <a href="#">
-          <Image
-            width={600}
-            height={600}
-            className="rounded-t-lg"
-            src="/assets/steptwo.png"
-            alt="Image of a person reading a book with puzzle symbols around his head"
-          />
-        </a>
+        <Image
+          width={600}
+          height={600}
+          className="rounded-t-lg"
+          src="/assets/steptwo.png"
+          alt="Image of a person reading a book with puzzle symbols around his head"
+        />
+
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Start solving puzzles.
@@ -83,26 +81,25 @@ export default function InfoSection() {
       <BsArrowDownShort className="w-32 h-32 mx-auto" />
       {/* Step 3 */}
       <div className="max-w-sm text-white  rounded-lg shadow bg-blue-700 border-gray-700">
-        <a href="#">
-          <Image
-            width={600}
-            height={600}
-            className="rounded-t-lg"
-            src="/assets/stepthree.png"
-            alt="Image of a hand hovering over a book with a complete jigsaw drawing inside the pages of the book"
-          />
-        </a>
+        <Image
+          width={600}
+          height={600}
+          className="rounded-t-lg"
+          src="/assets/stepthree.png"
+          alt="Image of a hand hovering over a book with a complete jigsaw drawing inside the pages of the book"
+        />
+
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Solve all puzzles to WIN!
           </h5>
-          <p className="mb-3 font-normal text-gray-300">
+          <p className=" font-normal text-gray-300 pb-4">
             Once you solve all the books puzzles you will see a winning message
             with your total time to solve the book.
           </p>
+          <HiOutlineLockOpen className="w-32 h-32 mx-auto" />
         </div>
       </div>
-      <HiOutlineLockOpen className="w-32 h-32 mx-auto" />
     </div>
   );
 }

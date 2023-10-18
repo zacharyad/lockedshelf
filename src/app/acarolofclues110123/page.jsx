@@ -57,7 +57,13 @@ function WithMain() {
   };
 
   if (isWinner) {
-    return <Winner rerender={rerender} bookName="Holiday Tale" bookId={1} />;
+    return (
+      <Winner
+        rerender={rerender}
+        bookName={intialHolidayBookData.name}
+        bookId={intialHolidayBookData.id}
+      />
+    );
   }
 
   return (
