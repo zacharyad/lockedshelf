@@ -14,6 +14,7 @@ function Winner({ rerender, bookName, bookId }) {
         getBook(LsBooks, bookId)
       );
       setTimeToSolve(totalTimeSpendSolvingString);
+      window.scrollTo(0, 0);
     }
   }, []);
 
