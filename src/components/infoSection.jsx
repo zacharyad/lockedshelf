@@ -96,13 +96,13 @@ export default function InfoSection() {
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Solve all puzzles to WIN!
           </h5>
-          <p className="mb-3 font-normal text-gray-300">
+          <p className=" font-normal text-gray-300 pb-4">
             Once you solve all the books puzzles you will see a winning message
             with your total time to solve the book.
           </p>
+          <HiOutlineLockOpen className="w-32 h-32 mx-auto" />
         </div>
       </div>
-      <HiOutlineLockOpen className="w-32 h-32 mx-auto" />
     </div>
   );
 }
