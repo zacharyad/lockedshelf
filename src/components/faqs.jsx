@@ -12,9 +12,9 @@ function Faqs() {
             return (
               <details
                 key={question}
-                className="bg-blue-700 open:bg-green-500 text-white open:text-black duration-300 my-4 border-2 "
+                className="bg-blue-700 rounded-md open:bg-green-500 text-white open:text-black duration-300 my-4 border-2 "
               >
-                <summary className="bg-inherit px-5 py-3 text-lg cursor-pointer">
+                <summary className="bg-inherit  px-5 py-3 text-lg cursor-pointer">
                   {question}
                 </summary>
                 <div className="bg-white px-5 py-3 border border-gray-300 text-sm font-light">
