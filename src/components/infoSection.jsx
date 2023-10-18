@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { BsArrowDownShort } from 'react-icons/bs';
 import { HiOutlineLockOpen } from 'react-icons/hi';
 
@@ -26,7 +27,8 @@ export default function InfoSection() {
             Buy a book. The book ships. You have the Book. Now find the QR
             code/Link to access that book&lsquo;s Answer entry page.
           </p>
-          <a
+          <Link
+            target="_blank"
             href="https://www.amazon.com"
             className="inline-flex items-center px-3 py-2 text-sm text-blue-800 font-medium text-center border-2 border-blue-800 rounded-lg focus:ring-4 focus:outline-none  bg-blue-100 hover:bg-blue-700 hover:text-blue-200 focus:ring-blue-800"
           >
@@ -46,7 +48,7 @@ export default function InfoSection() {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
       {/* Step 2 */}

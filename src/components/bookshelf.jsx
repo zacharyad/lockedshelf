@@ -79,20 +79,13 @@ function BookShelf() {
             </a>
           );
         })}
-        <a target="_blank" href={'https://www.amazon.com'}>
-          <div className="bg-slate-700 h-96 m-auto border-2 rounded-md text-center flex flex-col items-center p-8">
-            <h3 className="text-white text-md">
-              Check out our current Locked Shelf books on Amazon
-            </h3>
-            <Image
-              alt={`Image for Whispers in the Hollow book found on Amazon.com for purchase`}
-              width={250}
-              height={250}
-              src={'/assets/bookshelf.png'}
-              className="rounded-md my-4"
-            />
-          </div>
-        </a>
+        <Link
+          target="_blank"
+          href="https://www.amazon.com"
+          className=" border-2 px-6 py-2 text-slate-100 bg-blue-800 rounded-md hover:bg-blue-700 hover:text-blue-100 focus:ring-blue-800"
+        >
+          See This Series on Amazon
+        </Link>
       </section>
     </div>
   );
