@@ -36,7 +36,9 @@ function Winner({ rerender, bookName, bookId }) {
         <span className="font-bold text-2xl">
           Your Time to Solve
           <br />
-          <span className="font-extrabold underline">{bookName}:</span>
+          <span className="font-extrabold animate-pulse delay-75">
+            {bookName}:
+          </span>
         </span>
         <br />
         <span className="animate-pulse">{totalTimeToSolve}</span>
