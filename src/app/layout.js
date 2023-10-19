@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className={`${inter.className} scroll-smooth`}>
-        <nav className="flex justify-around items-center h-32 shadow-xl shadow-slate-400">
+        <nav className="flex justify-around items-center h-32 shadow-lg shadow-slate-400">
           <div className="m-auto text-2xl ml-12 flex justify-between items-center w-screen">
             <Link href="/">
               <Image
