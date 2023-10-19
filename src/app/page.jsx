@@ -33,7 +33,7 @@ export default function Home() {
           <div className="h-4 w-full invisible">spacer</div>
           <Link
             className="border-2 px-6 py-1 text-center text-black bg-opacity-0 border-black rounded-md"
-            href="/#info"
+            href="#info"
           >
             Learn More
           </Link>
