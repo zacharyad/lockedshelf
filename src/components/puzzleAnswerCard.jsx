@@ -44,7 +44,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
 
       currPuzzle.timeSolved = timeFromMsToHMS(timeSince);
       currPuzzle.isSolved = true;
-      puzzle.answers = [data.answer];
+      currPuzzle.answers = [data.answer];
     } else {
       // or set animation to briefly red and shake animation
       setIsError(true);
@@ -89,7 +89,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
             <div className="flex flex-col">
               <p>Solved!</p>
               <div>
-                Answer:
+                Answer:<span> </span>
                 {[...answers]}
               </div>
               <div>
