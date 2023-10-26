@@ -188,7 +188,7 @@ export const intialHolidayBookData = {
     {
       id: 11,
       name: 'Flood',
-      imageSrc: `/assets/ acarolofclues/puzzleImage11.png`,
+      imageSrc: `/assets/acarolofclues/puzzleImage11.png`,
       imageAlt: 'Image of a flooded area with a sign that says "Flood"',
       isSolved: false,
       answers: ['1844', '1903', '1951', '1993'],
