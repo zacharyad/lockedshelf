@@ -72,7 +72,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
   return (
     <section
       className={`w-96 snap-top ${
-        isError ? 'bg-red-500 animate-ping' : ''
+        isError ? 'bg-red-500 wrong' : ''
       } flex flex-col border-2 rounded-md border-slate-500 p-2 hover:border-slate-500 `}
     >
       <div
@@ -84,9 +84,9 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
         <div className="">
           <Image alt={imageAlt} width={300} height={300} src={imageSrc} />
         </div>
-        <div className="self-center justify-self-center w-4/6">
+        <div className={`self-center justify-self-center w-4/6`}>
           {isSolved ? (
-            <div className="flex flex-col">
+            <div className={`flex flex-col`}>
               <p>Solved!</p>
               <div>
                 Answer:<span> </span>
@@ -107,12 +107,12 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
               <label htmlFor="input">Answer: </label>
               <input
                 id="input"
-                className="text-black h-12 w-full text-center border-slate-600 border-2 rounded-md"
+                className={` text-black h-12 w-full text-center border-slate-600 border-2 rounded-md`}
                 {...register('answer')}
-                placeholder="______________________"
+                placeholder={isError ? 'WRONG' : '______________________'}
               />
               <input
-                className="w-4/6 my-2 text-black bg-slate-300 py-2 rounded-md hover:underline"
+                className={`w-4/6 my-2 text-black bg-slate-300 py-2 rounded-md hover:underline`}
                 type="submit"
               />
               <div>
