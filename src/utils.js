@@ -100,3 +100,24 @@ export function booksUserDoesNotHave(usersBooks, allBooks) {
 
   return retArr;
 }
+
+export function mergeNewDataWithOldData(oldData, newData) {
+  if (oldData.snapshot === newData.snapshot) return oldData;
+  else {
+    newData.timeStarted = oldData.timeStarted;
+
+    newData.puzzles.forEach((puzzle, index) => {
+      if (oldData.puzzles[index].isSolved) {
+        puzzle.isSolved = true;
+        puzzle.timeSolved = oldData.puzzles[index].timeSolved;
+        puzzle.answers = oldData.puzzles[index].answers;
+        puzzle.imagegSrc = oldData.puzzles[index].imageSrc;
+        puzzle.imageAlt = oldData.puzzles[index].imageAlt;
+      }
+
+      puzzle.tryCount = oldData.puzzles[index].tryCount;
+    });
+
+    return newData;
+  }
+}
