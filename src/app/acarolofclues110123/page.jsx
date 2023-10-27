@@ -9,6 +9,7 @@ import {
   getBook,
   handleAddingBookToShelf,
   wonBook,
+  mergeNewDataWithOldData,
 } from '../../utils';
 import { intialHolidayBookData } from '../../data';
 
@@ -20,20 +21,34 @@ function WithMain() {
   const [hintState, setHintState] = useState(false);
 
   useEffect(() => {
-    const lsBooks = JSON.parse(localStorage.getItem('books'));
+    let lsBooks = JSON.parse(localStorage.getItem('books'));
     const book = getBook(lsBooks, 1);
 
     if (book) {
-      const lsPuzzleData = book.puzzles;
-      const winner = isBookSolved(lsPuzzleData);
-      setPuzzleData(lsPuzzleData);
+      let updatedBookData = mergeNewDataWithOldData(
+        book,
+        intialHolidayBookData
+      );
+      const newBookData = updatedBookData.puzzles;
+      const winner = isBookSolved(newBookData);
+      setPuzzleData(newBookData);
 
-      if (winner && book) {
-        wonBook(lsBooks, book);
+      if (winner && updatedBookData) {
+        wonBook(lsBooks, updatedBookData);
       }
 
       setBooks(lsBooks);
       setIsWinner(winner);
+      const newLsBooksArr = lsBooks.map((book) => {
+        if (book.id === intialHolidayBookData.id) {
+          console.log('LOOK AT THIS: ', updatedBookData.puzzles);
+          return updatedBookData;
+        } else return book;
+      });
+
+      console.log(newLsBooksArr);
+
+      localStorage.setItem('books', JSON.stringify(newLsBooksArr));
     } else {
       localStorage.setItem(
         'books',

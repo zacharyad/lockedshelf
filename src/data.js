@@ -1,5 +1,6 @@
 export const intialWITHBookData = {
   id: 0,
+  snapshot: 5,
   name: 'Whispers in the Hollow \r\n (Coming Oct. 2024)',
   bookImage: '/assets/test.jpg',
   isSolved: false,
@@ -47,6 +48,7 @@ export const intialWITHBookData = {
 
 export const intialHolidayBookData = {
   id: 1,
+  snapshot: 1,
   name: 'A Carol of Clues',
   bookImage: '/assets/acarolofclues.png',
   isSolved: false,
@@ -67,6 +69,7 @@ export const intialHolidayBookData = {
       answers: [
         'may you always have time to enjoy the birds.',
         'may you always have time to enjoy the birds',
+        '1',
       ],
       timeSolved: undefined,
       tryCount: 0,
@@ -78,7 +81,7 @@ export const intialHolidayBookData = {
       imageSrc: `/assets/acarolofclues/puzzleImage1.png`,
       imageAlt: "An image filled with 1's and 0's",
       isSolved: false,
-      answers: ['800'],
+      answers: ['900', '800'],
       timeSolved: undefined,
       tryCount: 0,
       hint: 'You may need to take note of the length of those lines.',
@@ -89,7 +92,7 @@ export const intialHolidayBookData = {
       imageSrc: `/assets/acarolofclues/puzzleImage2.png`,
       imageAlt: 'Image of the outline of Manhattan, Kansas',
       isSolved: false,
-      answers: ['433722528637'],
+      answers: ['433722528637', '5'],
       timeSolved: undefined,
       tryCount: 0,
       hint: 'Each place should be found in Manhattan... Should be easy if you are looking for the right numbers.',
@@ -100,7 +103,7 @@ export const intialHolidayBookData = {
       imageSrc: `/assets/acarolofclues/puzzleImage3.png`,
       imageAlt: '"Nick Zack"',
       isSolved: false,
-      answers: ['1969'],
+      answers: ['1969', '5'],
       timeSolved: undefined,
       tryCount: 0,
       hint: 'This is the sculpture on a large are of learning. What year was this constructed?',
