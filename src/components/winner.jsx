@@ -5,7 +5,7 @@ import { getBook, getTimeSolved } from '../utils';
 import Confetti from 'react-confetti';
 import useWindowSize from 'react-use/lib/useWindowSize';
 
-function Winner({ rerender, bookName, bookId }) {
+function Winner({ bookName, bookId }) {
   const [totalTimeToSolve, setTimeToSolve] = useState(null);
   const { width, height } = useWindowSize();
 

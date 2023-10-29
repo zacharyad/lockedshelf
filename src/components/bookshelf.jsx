@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { booksUserDoesNotHave } from '@/utils';
-import { allBooks } from '@/data';
+import { allBooks } from '../books_data';
 
 function BookShelf() {
   const [books, setBooks] = useState([]);
