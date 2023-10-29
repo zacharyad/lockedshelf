@@ -41,12 +41,9 @@ function WithMain() {
       setIsWinner(winner);
       const newLsBooksArr = lsBooks.map((book) => {
         if (book.id === intialHolidayBookData.id) {
-          console.log('LOOK AT THIS: ', updatedBookData.puzzles);
           return updatedBookData;
         } else return book;
       });
-
-      console.log(newLsBooksArr);
 
       localStorage.setItem('books', JSON.stringify(newLsBooksArr));
     } else {

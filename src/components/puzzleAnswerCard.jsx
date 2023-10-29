@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { timeFromMsToHMS, findBookById, getBook } from '../utils';
-
+import Confetti from 'react-dom-confetti';
 function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
   const [isError, setIsError] = useState(false);
+
+  const [hasConfetti, setHasConfetti] = useState(false);
   const {
     register,
     handleSubmit,
@@ -38,6 +40,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
     currPuzzle.tryCount = currPuzzle.tryCount + 1;
 
     if (answers.includes(data.answer.trim().toLowerCase())) {
+      setHasConfetti(true);
       // write to localStorage to flip isSolved to true
       // timeSolved to be eual to new Date()
       const timeSince = new Date() - new Date(book.timeStarted);
@@ -45,6 +48,10 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
       currPuzzle.timeSolved = timeFromMsToHMS(timeSince);
       currPuzzle.isSolved = true;
       currPuzzle.answers = [data.answer];
+
+      // setTimeout(() => {
+      //   setHasConfetti(false);
+      // });
     } else {
       // or set animation to briefly red and shake animation
       setIsError(true);
@@ -84,6 +91,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
         <div className="">
           <Image alt={imageAlt} width={300} height={300} src={imageSrc} />
         </div>
+        <Confetti active={hasConfetti} />
         <div className={`self-center justify-self-center w-4/6`}>
           {isSolved ? (
             <div className={`flex flex-col`}>

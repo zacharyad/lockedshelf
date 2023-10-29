@@ -36,7 +36,6 @@ export function handleResetPuzzles(rerender, bookId) {
 export function findBookById(LsBooks, id) {
   for (let i = 0; i < LsBooks.length; i++) {
     if (LsBooks[i].id === id) {
-      console.log('FOUND BOOK IN FINDBYID FUNC: ', LsBooks[i]);
       return LsBooks[i];
     }
   }

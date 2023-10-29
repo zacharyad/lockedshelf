@@ -2,9 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import Spacer from './spacer';
 import { getBook, getTimeSolved } from '../utils';
+import Confetti from 'react-confetti';
+import useWindowSize from 'react-use/lib/useWindowSize';
 
 function Winner({ rerender, bookName, bookId }) {
   const [totalTimeToSolve, setTimeToSolve] = useState(null);
+  const { width, height } = useWindowSize();
 
   useEffect(() => {
     const LsBooks = JSON.parse(localStorage.getItem('books'));
@@ -18,16 +21,9 @@ function Winner({ rerender, bookName, bookId }) {
     }
   }, []);
 
-  const handleResetPuzzles = () => {
-    localStorage.removeItem('with-puzzle-data');
-    localStorage.removeItem('books');
-    localStorage.removeItem('with-end-time');
-    rerender((prev) => !prev);
-    //window.location.reload();
-  };
-
   return (
     <div className="flex flex-col items-center pt-12 text-center text-xl h-screen w-screen">
+      <Confetti width={width} height={height} />
       <p className="text-5xl text-green-600 p-4 animate-pulse font-extrabold">
         You won!
       </p>
