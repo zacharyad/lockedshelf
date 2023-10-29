@@ -11,7 +11,7 @@ import {
   wonBook,
   mergeNewDataWithOldData,
 } from '../../utils';
-import { intialHolidayBookData } from '../../data';
+import { intialHolidayBookData } from '../../books_data/acarolofclues';
 
 function WithMain() {
   const [LsPuzzleData, setPuzzleData] = useState(null);
