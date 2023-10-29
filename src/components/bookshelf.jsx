@@ -40,9 +40,6 @@ function BookShelf() {
                 className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 flex flex-col items-center text-center hover:opacity-90"
               >
                 <Link href={book.href} className="flex flex-col items-center">
-                  {/* <h3 className="font-bold text-lg w-64 flex justify-center text-center">
-                    {book.name}
-                  </h3> */}
                   {won ? (
                     <p className="text-green-400">Completed</p>
                   ) : (

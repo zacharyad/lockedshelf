@@ -2,23 +2,21 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
-import { timeFromMsToHMS, findBookById, getBook } from '../utils';
+import { timeFromMsToHMS, getBook } from '../utils';
 import Confetti from 'react-dom-confetti';
+
 function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
   const [isError, setIsError] = useState(false);
-
   const [hasConfetti, setHasConfetti] = useState(false);
   const {
     register,
     handleSubmit,
     reset,
-    setError,
     formState: { errors },
   } = useForm();
 
   const {
     id,
-    name,
     imageSrc,
     isSolved,
     answers,
@@ -26,7 +24,6 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
     tryCount,
     hint,
     imageAlt,
-    difficulty,
   } = puzzle;
 
   const onSubmit = (data) => {
@@ -39,24 +36,19 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
     // increasing count for each try
     currPuzzle.tryCount = currPuzzle.tryCount + 1;
 
+    // is correct answer check
     if (answers.includes(data.answer.trim().toLowerCase())) {
-      setHasConfetti(true);
       // write to localStorage to flip isSolved to true
-      // timeSolved to be eual to new Date()
+      // timeSolved to be equal to new Date()
       const timeSince = new Date() - new Date(book.timeStarted);
 
       currPuzzle.timeSolved = timeFromMsToHMS(timeSince);
       currPuzzle.isSolved = true;
       currPuzzle.answers = [data.answer];
-
-      // setTimeout(() => {
-      //   setHasConfetti(false);
-      // });
+      setHasConfetti(true);
     } else {
-      // or set animation to briefly red and shake animation
       setIsError(true);
       setTimeout(() => {
-        //register((prev) => !prev);
         setIsError(false);
       }, 1000);
     }

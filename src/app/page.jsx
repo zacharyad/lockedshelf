@@ -2,8 +2,8 @@ import Image from 'next/image';
 import BookShelf from '../components/bookshelf';
 import InfoSection from '../components/infoSection';
 import Faqs from '@/components/faqs';
-import Spacer from '@/components/spacer';
 import Link from 'next/link';
+
 export default function Home() {
   return (
     <div>
@@ -12,7 +12,7 @@ export default function Home() {
           <Image
             loading="lazy"
             alt="Locked Shelf Book Series Logo"
-            className="h-full"
+            className=""
             src="/assets/LsLogoAnimated.gif"
             width={600}
             height={400}

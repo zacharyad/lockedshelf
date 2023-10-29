@@ -99,7 +99,6 @@ export default function InfoSection() {
             Once you solve all the books puzzles you will see a winning message
             with your total time to solve the book.
           </p>
-          <HiOutlineLockOpen className="w-32 h-32 mx-auto" />
         </div>
       </div>
     </div>

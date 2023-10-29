@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Spacer from '@/components/spacer';
 import Winner from '@/components/winner';
 import {
-  handleResetPuzzles,
   isBookSolved,
   getBook,
   handleAddingBookToShelf,
@@ -61,13 +60,6 @@ function WithMain() {
     setHintState(!hintState);
   };
 
-  const handleDialogOpen = () => {
-    const dialog = document.getElementById('resetDialog');
-    if (dialog) {
-    }
-    dialog.showModal();
-  };
-
   if (isWinner) {
     return (
       <Winner
@@ -103,24 +95,6 @@ function WithMain() {
       ) : (
         <p>Loading</p>
       )}
-
-      <dialog id="resetDialog" className="p-4 rounded-md items-center">
-        <p>Are you sure you want to reset all</p>
-        <div className="flex gap-12 my-4">
-          <button
-            className="bg-red-600 text-white rounded-md py-2 px-4"
-            onClick={() => handleResetPuzzles(rerender, 1)}
-          >
-            Reset All Puzzles
-          </button>
-          <button
-            className="border-2 rounded-md py-2 px-4"
-            onClick={() => document.getElementById('resetDialog').close()}
-          >
-            Close
-          </button>
-        </div>
-      </dialog>
 
       {LsPuzzleData && (
         <div className="flex flex-col gap-12">
