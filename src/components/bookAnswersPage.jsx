@@ -69,6 +69,14 @@ function BookAnswersPage({ bookData }) {
 
   return (
     <div className="flex flex-col items-center snap-y snap-proximity ">
+      {bookData.id === 3 && (
+        <div className="text-center pb-12 px-8">
+          This tutorial will show you how answers are submitted for puzzles in a
+          Locked Shelf book. For this turorial just use the images above the
+          text inputs to get answers for each tutorial puzzle. These are
+          extremely easy, kind of like counting to three.
+        </div>
+      )}
       <h1 className="text-3xl mb-12 border-b-2 p-2">{bookData.name}</h1>
 
       <Spacer size={24} />

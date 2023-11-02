@@ -1,4 +1,4 @@
 import { initialACarolOfCluesBookData } from './acarolofclues';
 import { initialWithBookData } from './withbook';
-
-export const allBooks = [initialACarolOfCluesBookData];
+import { tutorial } from './tutorial';
+export const allBooks = [initialACarolOfCluesBookData, tutorial];
