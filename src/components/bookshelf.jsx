@@ -37,7 +37,7 @@ function BookShelf() {
             return (
               <div
                 key={book.name}
-                className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 flex flex-col items-center text-center hover:opacity-90"
+                className="bg-slate-700 h-fit m-auto border-2 rounded-md p-4 flex flex-col items-center text-center hover:opacity-90"
               >
                 <Link href={book.href} className="flex flex-col items-center">
                   {won ? (
@@ -58,6 +58,16 @@ function BookShelf() {
             );
           })}
 
+        <div className="pt-8  bg-slate-300">
+          {books.length !== 0 ? (
+            <h2 className="text-center p-4 text-5xl  text-black">
+              The Locked Shelf
+            </h2>
+          ) : (
+            <h2 className="text-center p-4 text-5xl  text-black"></h2>
+          )}
+        </div>
+
         {booksUserDoesNotHave(books, allBooks).map((book) => {
           return (
             <a key={book.name} target="_blank" href={book.amazonWebAddress}>
@@ -65,9 +75,9 @@ function BookShelf() {
                 <Image
                   alt={book.imageAlt}
                   width={300}
-                  height={300}
+                  height={200}
                   src={book.bookImage}
-                  className="rounded-md shadow-xl shadow-slate-500"
+                  className="rounded-md shadow-xl shadow-slate-500 h-full"
                 />
               </div>
             </a>
@@ -78,7 +88,7 @@ function BookShelf() {
           href="https://www.amazon.com"
           className=" border-2 px-6 py-2 text-slate-100 bg-blue-800 rounded-md hover:bg-blue-700 hover:text-blue-100 focus:ring-blue-800"
         >
-          See This Series on Amazon
+          See on Amazon
         </Link>
       </section>
     </div>
