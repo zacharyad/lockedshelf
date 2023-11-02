@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { booksUserDoesNotHave } from '@/utils';
 import { allBooks } from '../books_data';
+import Spacer from './spacer';
 
 function BookShelf() {
   const [books, setBooks] = useState([]);
@@ -21,7 +22,7 @@ function BookShelf() {
       <div className="pt-8  bg-slate-300">
         {books.length !== 0 ? (
           <h2 className="text-center p-4 text-5xl  text-black">
-            Your Locked Shelf
+            Your Book Shelf
           </h2>
         ) : (
           <h2 className="text-center p-4 text-5xl  text-black">
@@ -29,7 +30,7 @@ function BookShelf() {
           </h2>
         )}
       </div>
-      <section className="bg-slate-300 w-full flex flex-col items-center gap-4 p-4">
+      <section className="bg-slate-300 w-full flex flex-col items-center gap-4">
         {books.length !== 0 &&
           books.map((book) => {
             let won = book.isSolved;
@@ -83,6 +84,7 @@ function BookShelf() {
             </a>
           );
         })}
+        <Spacer size={12} />
         <Link
           target="_blank"
           href="https://www.amazon.com"
@@ -90,6 +92,7 @@ function BookShelf() {
         >
           See on Amazon
         </Link>
+        <Spacer size={12} />
       </section>
     </div>
   );
