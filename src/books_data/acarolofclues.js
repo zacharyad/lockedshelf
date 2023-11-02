@@ -1,4 +1,4 @@
-export const intialHolidayBookData = {
+export const initialACarolOfCluesBookData = {
   id: 1,
   snapshot: 2,
   name: 'A Carol of Clues',

@@ -1,4 +1,4 @@
-export const intialWITHBookData = {
+export const initialWithBookData = {
   id: 0,
   snapshot: 9,
   name: 'Whispers in the Hollow \r\n (Coming Oct. 2024)',
