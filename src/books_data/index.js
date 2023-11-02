@@ -1,4 +1,4 @@
-import { intialHolidayBookData } from './acarolofclues';
-import { intialWITHBookData } from './withbook';
+import { initialACarolOfCluesBookData } from './acarolofclues';
+import { initialWithBookData } from './withbook';
 
-export const allBooks = [intialHolidayBookData];
+export const allBooks = [initialACarolOfCluesBookData];

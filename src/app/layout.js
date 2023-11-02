@@ -2,8 +2,8 @@ import './globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import Spacer from '@/components/spacer';
 const inter = Inter({ subsets: ['latin'] });
+import Spacer from '@/components/spacer';
 
 export const metadata = {
   title: 'Locked Shelf',

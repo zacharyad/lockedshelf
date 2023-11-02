@@ -2,8 +2,8 @@ import Image from 'next/image';
 import BookShelf from '../components/bookshelf';
 import InfoSection from '../components/infoSection';
 import Faqs from '@/components/faqs';
-import Spacer from '@/components/spacer';
 import Link from 'next/link';
+import BackToTopBtn from '../components/backtotopbtn';
 export default function Home() {
   return (
     <div>
@@ -12,7 +12,7 @@ export default function Home() {
           <Image
             loading="lazy"
             alt="Locked Shelf Book Series Logo"
-            className="h-full"
+            className=""
             src="/assets/LsLogoAnimated.gif"
             width={600}
             height={400}
@@ -42,12 +42,7 @@ export default function Home() {
       <BookShelf />
       <InfoSection />
       <Faqs />
-      <Link
-        className=" flex justify-center rounded-md m-8 py-2 px-4 shadow-inner bg-slate-200 border-2 border-slate-400"
-        href="/"
-      >
-        Back to Top
-      </Link>
+      <BackToTopBtn href="/" />
     </div>
   );
 }
