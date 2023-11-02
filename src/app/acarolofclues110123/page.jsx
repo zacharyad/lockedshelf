@@ -10,6 +10,7 @@ import {
   wonBook,
   mergeNewDataWithOldData,
 } from '../../utils';
+import BackToTopBtn from '@/components/backtotopbtn';
 import { intialHolidayBookData } from '../../books_data/acarolofclues';
 
 function WithMain() {
@@ -116,6 +117,7 @@ function WithMain() {
           </label>
         </div>
       )}
+      <BackToTopBtn href="/acarolofclues110123" />
     </div>
   );
 }

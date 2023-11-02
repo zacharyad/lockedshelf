@@ -32,4 +32,9 @@ export const faqs = [
     answer:
       "Yes, there's a \"hint toggle\" button on the book's answer entry page. It reveals additional clues for puzzles that you've attempted more than 5 times. If you find a puzzle too difficult, you can use the hints. We don't keep track of the hint button's use, so it's on the honor system if you're competing with friends or family.",
   },
+  {
+    question: 'What do I do when I am done?',
+    answer:
+      'First off, CONGRATULATIONS! Now that you are done you may want to throw away the book. STOP, we want to recycle your book properly and save it from the landfill! Drop of your book, in any condition, at Locked Manhattan located at 116 S 4th St #122a, Manhattan, KS 66502. In return for you book we will give you a silicone wristband to commenorate your puzzle solving of a Locked Shelf adventure book.',
+  },
 ];
