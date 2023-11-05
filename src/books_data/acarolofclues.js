@@ -76,7 +76,7 @@ export const initialACarolOfCluesBookData = {
       imageSrc: `/assets/acarolofclues/puzzleImage5.png`,
       imageAlt: 'P1U1Z2L1E1',
       isSolved: false, // Do not change this ever
-      answers: ['crachit'],
+      answers: ['cratchit'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
       hint: 'The sentence "This sentence" has 2 t\'s and yet you know exactly what it says.',
