@@ -24,7 +24,7 @@ export const initialACarolOfCluesBookData = {
       ],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: "This trail may be seen using binaculars but i won't squak if you dont use BsThermometer. what does it say in quotes?",
+      hint: "This trail may be seen using binaculars, but I won't squak if you dont. What would that quote say on that sign if you were standing in front of it?",
     },
     {
       id: 1, // Do not change this ever
@@ -35,7 +35,7 @@ export const initialACarolOfCluesBookData = {
       answers: ['800'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: 'You may need to take note of the length of those lines.',
+      hint: 'You may need to take note of the length of those lines on the N01es page. B. I. Nary would always turn to his home Base 10',
     },
     {
       id: 2, // Do not change this ever
@@ -46,7 +46,7 @@ export const initialACarolOfCluesBookData = {
       answers: ['433722528637'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: 'Each place should be found in Manhattan... Should be easy if you are looking for the right numbers.',
+      hint: 'Each place should be found in Manhattan... Should be easy if you are looking for the right numbers in the outline.',
     },
     {
       id: 3, // Do not change this ever
@@ -57,7 +57,7 @@ export const initialACarolOfCluesBookData = {
       answers: ['1969'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: 'This is the sculpture on a large are of learning. What year was this constructed?',
+      hint: 'This is the sculpture on a large area of learning. A large word seen near may help you with the answer?',
     },
     {
       id: 4, // Do not change this ever
@@ -68,7 +68,7 @@ export const initialACarolOfCluesBookData = {
       answers: ['-122'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: 'The berries are your missing variable. It may all look a lot better from a new perspective.',
+      hint: 'The berries are your missing variable. It may all look a lot better from a new perspective that we will need to see.',
     },
     {
       id: 5, // Do not change this ever
@@ -79,7 +79,7 @@ export const initialACarolOfCluesBookData = {
       answers: ['cratchit'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: 'The sentence "This sentence" has 2 t\'s and yet you know exactly what it says.',
+      hint: 'The sentence "This sentence" has 2 t\'s and you know exactly what it says.',
     },
     {
       id: 6, // Do not change this ever
@@ -114,7 +114,7 @@ export const initialACarolOfCluesBookData = {
       answers: ['09090623', '9090623', '99623'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: 'You may need to see throug these in order to find the right numbers',
+      hint: 'You may need to see through these in order to find the right numbers',
     },
     {
       id: 9, // Do not change this ever
@@ -126,7 +126,7 @@ export const initialACarolOfCluesBookData = {
       answers: ['manhattan welcomes you'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: 'What does this sign say as you enter town?',
+      hint: 'What does this sign say as you enter Manhattan, KS?',
     },
     {
       id: 10, // Do not change this ever
@@ -137,7 +137,7 @@ export const initialACarolOfCluesBookData = {
       answers: ['slats'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: 'The stars make a pattern, of which the first letter of the name matters. Use the moon to give you the order of those letters',
+      hint: 'Stars make a pattern, of which the first letter of its name matters. Use the moon to give you the order of those letters',
     },
     {
       id: 11, // Do not change this ever
@@ -148,7 +148,7 @@ export const initialACarolOfCluesBookData = {
       answers: ['1903', '1844', '1951', '1993'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: 'Any year it can rain, but one happened to be an issue for the town of Manhattan, KS.',
+      hint: 'One year happened to be an issue for the town of Manhattan, KS.',
     },
   ],
 };
