@@ -65,7 +65,7 @@ export const initialACarolOfCluesBookData = {
       imageSrc: '/assets/acarolofclues/puzzleImage4.png',
       imageAlt: 'image of a holly branch with no berries on it, just leaves',
       isSolved: false, // Do not change this ever
-      answers: ['644'],
+      answers: ['-122'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
       hint: 'The berries are your missing variable. It may all look a lot better from a new perspective.',
