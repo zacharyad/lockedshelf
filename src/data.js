@@ -30,7 +30,7 @@ export const faqs = [
   {
     question: 'Is there a way to get hints?',
     answer:
-      "Yes, there's a \"hint toggle\" button on the book's answer entry page. It reveals additional clues for puzzles that you've attempted more than 5 times. If you find a puzzle too difficult, you can use the hints. We don't keep track of the hint button's use, so it's on the honor system if you're competing with friends or family.",
+      "Yes, there's a \"hint toggle\" button on the book's answer entry page. It reveals additional clues for puzzles that you've attempted more than 5 times. If you find a puzzle too difficult, you can use the hints. We don't keep track of the hint button's use, so it's on the honor system if you're competing with friends or family. If you still can solve a puzzles with the hint... keep trying. Some people are still trying to complete a Rubik's Cube.",
   },
   {
     question: 'What do I do when I am done?',
