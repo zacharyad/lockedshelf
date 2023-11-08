@@ -1,6 +1,7 @@
 export const initialACarolOfCluesBookData = {
   id: 1,
   snapshot: 1,
+  hintsUsedCount: 0,
   name: 'A Carol of Clues',
   bookImage: '/assets/acarolofclues.png',
   isSolved: false, // Do not change this ever

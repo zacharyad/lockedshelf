@@ -7,16 +7,17 @@ import useWindowSize from 'react-use/lib/useWindowSize';
 
 function Winner({ bookName, bookId }) {
   const [totalTimeToSolve, setTimeToSolve] = useState(null);
+  const [hintsUsed, setHintsUsed] = useState(0);
   const { width, height } = useWindowSize();
 
   useEffect(() => {
     const LsBooks = JSON.parse(localStorage.getItem('books'));
+    const book = getBook(LsBooks, bookId);
 
-    if (LsBooks) {
-      const totalTimeSpendSolvingString = getTimeSolved(
-        getBook(LsBooks, bookId)
-      );
+    if (LsBooks && book) {
+      const totalTimeSpendSolvingString = getTimeSolved(book);
       setTimeToSolve(totalTimeSpendSolvingString);
+      setHintsUsed(book.hintsUsedCount);
       window.scrollTo(0, 0);
     }
   }, []);
@@ -39,6 +40,9 @@ function Winner({ bookName, bookId }) {
         <br />
         <span className="animate-pulse">{totalTimeToSolve}</span>
       </p>
+      <span className="font-bold text-2xl text-orange-500">
+        With {hintsUsed} hints used
+      </span>
     </div>
   );
 }
