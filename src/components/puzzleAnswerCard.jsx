@@ -166,7 +166,7 @@ function PuzzleAnswerCard({
                         className="py-2 px-4 rounded-md bg-orange-300"
                         onClick={() => engageFirstHint()}
                       >
-                        Use First Hint for this puzzle
+                        Click to use first hint for this puzzle
                       </button>
                     )}
                     {firstHintSeen && (
