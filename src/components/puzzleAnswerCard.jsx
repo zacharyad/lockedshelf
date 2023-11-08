@@ -4,12 +4,11 @@ import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { timeFromMsToHMS, getBook } from '../utils';
 import Confetti from 'react-dom-confetti';
-import { getBook } from '../utils';
+
 function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
   const [isError, setIsError] = useState(false);
   const [hasConfetti, setHasConfetti] = useState(false);
-  const [showFirstHint, setFirstHint] = useState(false);
-  const [showLastHint, setLastHint] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -31,18 +30,26 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
   } = puzzle;
 
   const engageFirstHint = () => {
-    console.log('first');
+    let books = JSON.parse(localStorage.getItem('books'));
+    const book = getBook(books, bookId);
+    const puzzle = book.puzzles[id];
 
-    puzzle.setFirstHint(true);
+    puzzle.firstHintSeen = true;
+
+    localStorage.setItem('books', JSON.stringify(books));
+    rerender((prev) => !prev);
   };
 
   const engageLastHint = () => {
-    console.log('Last');
+    let books = JSON.parse(localStorage.getItem('books'));
+    const book = getBook(books, bookId);
+    const puzzle = book.puzzles[id];
 
-    setLastHint(true);
+    puzzle.lastHintSeen = true;
+
+    localStorage.setItem('books', JSON.stringify(books));
+    rerender((prev) => !prev);
   };
-
-  setLastHint;
 
   const onSubmit = (data) => {
     // Not allowing blank answers
@@ -138,7 +145,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
 
                 {isHint && (
                   <div>
-                    {!showFirstHint && (
+                    {!firstHintSeen && (
                       <button
                         className="py-2 px-4 rounded-md bg-orange-300"
                         onClick={() => engageFirstHint()}
@@ -146,7 +153,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
                         See First Hint
                       </button>
                     )}
-                    {showFirstHint && (
+                    {firstHintSeen && (
                       <p>
                         <span className="font-bold italic">First Hint: </span>
                         {hint[0]}
@@ -155,9 +162,9 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
                   </div>
                 )}
 
-                {isHint && showFirstHint && tryCount > 5 && (
+                {isHint && firstHintSeen && tryCount > 5 && (
                   <div>
-                    {!showLastHint && (
+                    {!lastHintSeen && (
                       <button
                         className="py-2 px-4 rounded-md bg-red-300"
                         type="button"
@@ -166,7 +173,7 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
                         Do you want another hint?
                       </button>
                     )}
-                    {showLastHint && (
+                    {lastHintSeen && (
                       <p>
                         <span className="font-bold italic">Second Hint: </span>
                         {hint[1]}
