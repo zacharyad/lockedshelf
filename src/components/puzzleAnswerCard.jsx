@@ -4,10 +4,12 @@ import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { timeFromMsToHMS, getBook } from '../utils';
 import Confetti from 'react-dom-confetti';
-
+import { getBook } from '../utils';
 function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
   const [isError, setIsError] = useState(false);
   const [hasConfetti, setHasConfetti] = useState(false);
+  const [showFirstHint, setFirstHint] = useState(false);
+  const [showLastHint, setLastHint] = useState(false);
   const {
     register,
     handleSubmit,
@@ -24,7 +26,23 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
     tryCount,
     hint,
     imageAlt,
+    firstHintSeen,
+    lastHintSeen,
   } = puzzle;
+
+  const engageFirstHint = () => {
+    console.log('first');
+
+    puzzle.setFirstHint(true);
+  };
+
+  const engageLastHint = () => {
+    console.log('Last');
+
+    setLastHint(true);
+  };
+
+  setLastHint;
 
   const onSubmit = (data) => {
     // Not allowing blank answers
@@ -117,14 +135,45 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
               />
               <div>
                 <p>{errors.answer && <p>Error MSG</p>}</p>
-                <p>
-                  {tryCount > 5 && isHint && (
-                    <p>
-                      <span className="font-bold italic">Hint: </span>
-                      {hint}
-                    </p>
-                  )}
-                </p>
+
+                {isHint && (
+                  <div>
+                    {!showFirstHint && (
+                      <button
+                        className="py-2 px-4 rounded-md bg-orange-300"
+                        onClick={() => engageFirstHint()}
+                      >
+                        See First Hint
+                      </button>
+                    )}
+                    {showFirstHint && (
+                      <p>
+                        <span className="font-bold italic">First Hint: </span>
+                        {hint[0]}
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                {isHint && showFirstHint && tryCount > 5 && (
+                  <div>
+                    {!showLastHint && (
+                      <button
+                        className="py-2 px-4 rounded-md bg-red-300"
+                        type="button"
+                        onClick={() => engageLastHint(true)}
+                      >
+                        Do you want another hint?
+                      </button>
+                    )}
+                    {showLastHint && (
+                      <p>
+                        <span className="font-bold italic">Second Hint: </span>
+                        {hint[1]}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             </form>
           )}
