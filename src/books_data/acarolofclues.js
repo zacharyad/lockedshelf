@@ -1,6 +1,6 @@
 export const initialACarolOfCluesBookData = {
   id: 1,
-  snapshot: 2,
+  snapshot: 1,
   name: 'A Carol of Clues',
   bookImage: '/assets/acarolofclues.png',
   isSolved: false, // Do not change this ever
@@ -10,6 +10,7 @@ export const initialACarolOfCluesBookData = {
   timeEnded: undefined,
   timeStarted: new Date().toUTCString(),
   amazonWebAddress: 'https://www.amazon.com',
+  isShowingHints: false, // Do not change this ever
   puzzles: [
     {
       id: 0, // Do not change this ever
@@ -23,7 +24,7 @@ export const initialACarolOfCluesBookData = {
         'may you always have time to enjoy the birds',
       ],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -39,7 +40,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['800'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -55,7 +56,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['433722528637'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -71,7 +72,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['1969'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -87,7 +88,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['-122'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -103,7 +104,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['cratchit'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -119,7 +120,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['&!#(+'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -136,7 +137,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['ghost of three'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -153,7 +154,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['09090623', '9090623', '99623'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -170,7 +171,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['manhattan welcomes you'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -186,7 +187,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['slats'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
@@ -202,7 +203,7 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['1903', '1844', '1951', '1993'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
+      tryCount: 0,
 
       firstHintSeen: false,
       lastHintSeen: false,
