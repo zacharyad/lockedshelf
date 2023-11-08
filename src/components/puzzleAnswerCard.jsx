@@ -111,6 +111,12 @@ function PuzzleAnswerCard({
         } p-2 rounded-md flex gap-4 flex-col items-center hover:opacity-80`}
       >
         {tryCount > 0 ? <p>Attempts: {tryCount}</p> : <p></p>}
+        {firstHintSeen ? (
+          <p>Used Hints: {firstHintSeen + lastHintSeen}</p>
+        ) : (
+          <p></p>
+        )}
+
         <div className="">
           <Image alt={imageAlt} width={300} height={300} src={imageSrc} />
         </div>
@@ -118,25 +124,15 @@ function PuzzleAnswerCard({
         <div className={`self-center justify-self-center w-4/6`}>
           {isSolved ? (
             <div className={`flex flex-col`}>
-              <p>
-                Solved!
-                {firstHintSeen ? (
-                  <p>
-                    {firstHintSeen + lastHintSeen} hint{lastHintSeen && 's'}
-                    used.
-                  </p>
-                ) : (
-                  <p>No hints used!</p>
-                )}
-              </p>
+              <p>Solved!</p>
               <div>
-                Answer:<span> </span>
+                <span className="font-bold">Answer: </span>
                 {[...answers]}
               </div>
               <div>
                 {errors.answer && <div>Error</div>}
 
-                <p>Time To Solve: </p>
+                <p className="font-bold">Time To Solve: </p>
                 <p>{timeSolved}</p>
               </div>
             </div>
