@@ -40,6 +40,7 @@ function BookAnswersPage({ bookData }) {
           return updatedBookData;
         } else return book;
       });
+      setHintState(updatedBookData.isShowingHints);
 
       localStorage.setItem('books', JSON.stringify(newLsBooksArr));
     } else {
@@ -54,7 +55,17 @@ function BookAnswersPage({ bookData }) {
   }, [rerendered]);
 
   const toggleHints = () => {
-    setHintState(!hintState);
+    console.log('Book data: ', bookData);
+
+    let books = JSON.parse(localStorage.getItem('books'));
+    const book = getBook(books, bookData.id);
+
+    book.isShowingHints = !book.isShowingHints;
+    localStorage.setItem('books', JSON.stringify(books));
+
+    setHintState((prev) => !prev);
+
+    rerender((prev) => !prev);
   };
 
   if (isWinner) {
@@ -100,23 +111,27 @@ function BookAnswersPage({ bookData }) {
       )}
 
       {LsPuzzleData && (
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col items-center gap-12 h-36">
           <label
             htmlFor="Toggle1"
             className="inline-flex items-center space-x-4 cursor-pointer"
           >
-            <span>Hints After Five Puzzle Attempts:</span>
+            <span>See hints: </span>
             <span className="relative">
               <input
                 id="Toggle1"
                 type="checkbox"
                 onChange={toggleHints}
                 className="hidden peer"
+                checked={hintState}
               />
               <div className="w-8 h-6 rounded-full shadow-inner bg-gray-400 peer-checked:bg-green-400"></div>
               <div className="absolute inset-y-0 bg-slate-100 peer-checked:bg-slate-900 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto"></div>
             </span>
           </label>
+          {hintState && (
+            <em>*All hints used will be counted. Use them wisely.</em>
+          )}
         </div>
       )}
       <BackToTopBtn href={bookData.href} />

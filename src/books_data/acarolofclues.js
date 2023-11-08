@@ -1,6 +1,7 @@
 export const initialACarolOfCluesBookData = {
   id: 1,
   snapshot: 1,
+  hintsUsedCount: 0,
   name: 'A Carol of Clues',
   bookImage: '/assets/acarolofclues.png',
   isSolved: false, // Do not change this ever
@@ -10,6 +11,7 @@ export const initialACarolOfCluesBookData = {
   timeEnded: undefined,
   timeStarted: new Date().toUTCString(),
   amazonWebAddress: 'https://www.amazon.com',
+  isShowingHints: false, // Do not change this ever
   puzzles: [
     {
       id: 0, // Do not change this ever
@@ -23,8 +25,13 @@ export const initialACarolOfCluesBookData = {
         'may you always have time to enjoy the birds',
       ],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: "This trail may be seen using binaculars, but I won't squak if you dont. What would that quote say on that sign if you were standing in front of it?",
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        "This trail may be seen using binaculars, but I won't squak if you dont. What would that quote say on that sign if you were standing in front of it?",
+        'Easiest Hint',
+      ],
     },
     {
       id: 1, // Do not change this ever
@@ -34,8 +41,13 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['800'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'You may need to take note of the length of those lines on the N01es page. B. I. Nary would always turn to his home Base 10',
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'You may need to take note of the length of those lines on the N01es page. B. I. Nary would always turn to his home Base 10',
+        'Easiest Hint',
+      ],
     },
     {
       id: 2, // Do not change this ever
@@ -45,8 +57,13 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['433722528637'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'Each place should be found in Manhattan... Should be easy if you are looking for the right numbers in the outline.',
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'Each place should be found in Manhattan... Should be easy if you are looking for the right numbers in the outline.',
+        'Easiest Hint',
+      ],
     },
     {
       id: 3, // Do not change this ever
@@ -56,8 +73,13 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['1969'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'This is the sculpture on a large area of learning. A large word seen near may help you with the answer?',
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'This is the sculpture on a large area of learning. A large word seen near may help you with the answer?',
+        'Easiest Hint',
+      ],
     },
     {
       id: 4, // Do not change this ever
@@ -67,8 +89,13 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['-122'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'The berries are your missing variable. It may all look a lot better from a new perspective that we will need to see.',
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'The berries are your missing variable. It may all look a lot better from a new perspective that we will need to see.',
+        'Easiest Hint',
+      ],
     },
     {
       id: 5, // Do not change this ever
@@ -78,8 +105,13 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['cratchit'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'The sentence "This sentence" has 2 t\'s and you know exactly what it says.',
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'The sentence "This sentence" has 2 t\'s and you know exactly what it says.',
+        'Easiest Hint',
+      ],
     },
     {
       id: 6, // Do not change this ever
@@ -89,8 +121,13 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['&!#(+'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'These shapes have sides. These sides might be helpful in telling you the order of the symbols.',
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'These shapes have sides. These sides might be helpful in telling you the order of the symbols.',
+        'Easiest Hint',
+      ],
     },
     {
       id: 7, // Do not change this ever
@@ -101,8 +138,13 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['ghost of three'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'Free the measuring device. Square it with the circles and let the number tell you the letter. Unscramble it to find your answer.',
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'Free the measuring device. Square it with the circles and let the number tell you the letter. Unscramble it to find your answer.',
+        'Easiest Hint',
+      ],
     },
     {
       id: 8, // Do not change this ever
@@ -113,8 +155,13 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['09090623', '9090623', '99623'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'You may need to see through these in order to find the right numbers',
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'You may need to see through these in order to find the right numbers',
+        'Easiest Hint',
+      ],
     },
     {
       id: 9, // Do not change this ever
@@ -125,8 +172,13 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['manhattan welcomes you'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'What does this sign say as you enter Manhattan, KS?',
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'What does this sign say as you enter Manhattan, KS?',
+        'Easiest Hint',
+      ],
     },
     {
       id: 10, // Do not change this ever
@@ -136,8 +188,13 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['slats'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'Stars make a pattern, of which the first letter of its name matters. Use the moon to give you the order of those letters',
+      tryCount: 0,
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'Stars make a pattern, of which the first letter of its name matters. Use the moon to give you the order of those letters',
+        'Easiest Hint',
+      ],
     },
     {
       id: 11, // Do not change this ever
@@ -147,8 +204,14 @@ export const initialACarolOfCluesBookData = {
       isSolved: false, // Do not change this ever
       answers: ['1903', '1844', '1951', '1993'],
       timeSolved: undefined, // Do not change this ever
-      tryCount: 0, // Do not change this ever
-      hint: 'One year happened to be an issue for the town of Manhattan, KS.',
+      tryCount: 0,
+
+      firstHintSeen: false,
+      lastHintSeen: false,
+      hint: [
+        'One year happened to be an issue for the town of Manhattan, KS.',
+        'Easiest Hint',
+      ],
     },
   ],
 };

@@ -5,9 +5,16 @@ import { useForm } from 'react-hook-form';
 import { timeFromMsToHMS, getBook } from '../utils';
 import Confetti from 'react-dom-confetti';
 
-function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
+function PuzzleAnswerCard({
+  puzzle,
+  isHint,
+  rerender,
+  bookId,
+  hintsUsedCount,
+}) {
   const [isError, setIsError] = useState(false);
   const [hasConfetti, setHasConfetti] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -24,7 +31,31 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
     tryCount,
     hint,
     imageAlt,
+    firstHintSeen,
+    lastHintSeen,
   } = puzzle;
+
+  const engageFirstHint = () => {
+    let books = JSON.parse(localStorage.getItem('books'));
+    const book = getBook(books, bookId);
+    const puzzle = book.puzzles[id];
+    book.hintsUsedCount++;
+    puzzle.firstHintSeen = true;
+    localStorage.setItem('books', JSON.stringify(books));
+    rerender((prev) => !prev);
+  };
+
+  const engageLastHint = () => {
+    let books = JSON.parse(localStorage.getItem('books'));
+    const book = getBook(books, bookId);
+    const puzzle = book.puzzles[id];
+    book.hintsUsedCount++;
+
+    puzzle.lastHintSeen = true;
+
+    localStorage.setItem('books', JSON.stringify(books));
+    rerender((prev) => !prev);
+  };
 
   const onSubmit = (data) => {
     // Not allowing blank answers
@@ -70,9 +101,9 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
 
   return (
     <section
-      className={`w-96 snap-top ${
+      className={`w-96 h[400px] snap-top ${
         isError ? 'bg-red-500 wrong' : ''
-      } flex flex-col border-2 rounded-md border-slate-500 p-2 hover:border-slate-500 `}
+      } flex flex-col border-2 rounded-md border-slate-500 p-2 hover:border-slate-500`}
     >
       <div
         className={`${
@@ -87,7 +118,17 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
         <div className={`self-center justify-self-center w-4/6`}>
           {isSolved ? (
             <div className={`flex flex-col`}>
-              <p>Solved!</p>
+              <p>
+                Solved!
+                {firstHintSeen ? (
+                  <p>
+                    {firstHintSeen + lastHintSeen} hint{lastHintSeen && 's'}
+                    used.
+                  </p>
+                ) : (
+                  <p>No hints used!</p>
+                )}
+              </p>
               <div>
                 Answer:<span> </span>
                 {[...answers]}
@@ -117,14 +158,45 @@ function PuzzleAnswerCard({ puzzle, isHint, rerender, bookId }) {
               />
               <div>
                 <p>{errors.answer && <p>Error MSG</p>}</p>
-                <p>
-                  {tryCount > 5 && isHint && (
-                    <p>
-                      <span className="font-bold italic">Hint: </span>
-                      {hint}
-                    </p>
-                  )}
-                </p>
+
+                {isHint && (
+                  <div className="">
+                    {!firstHintSeen && (
+                      <button
+                        className="py-2 px-4 rounded-md bg-orange-300"
+                        onClick={() => engageFirstHint()}
+                      >
+                        Click to use first hint for this puzzle
+                      </button>
+                    )}
+                    {firstHintSeen && (
+                      <p>
+                        <span className="font-bold italic">First Hint: </span>
+                        {hint[0]}
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                {isHint && firstHintSeen && tryCount > 5 && (
+                  <div>
+                    {!lastHintSeen && (
+                      <button
+                        className="py-2 px-4 rounded-md bg-red-300"
+                        type="button"
+                        onClick={() => engageLastHint(true)}
+                      >
+                        Do you want to use your last hint?
+                      </button>
+                    )}
+                    {lastHintSeen && (
+                      <p>
+                        <span className="font-bold italic">Second Hint: </span>
+                        {hint[1]}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             </form>
           )}
