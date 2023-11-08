@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsArrowDownShort } from 'react-icons/bs';
-import { HiOutlineLockOpen } from 'react-icons/hi';
 
 export default function InfoSection() {
   return (

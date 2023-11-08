@@ -4,6 +4,7 @@ import InfoSection from '../components/infoSection';
 import Faqs from '@/components/faqs';
 import Link from 'next/link';
 import BackToTopBtn from '../components/backtotopbtn';
+import SocialLinks from '@/components/SocialLinks';
 export default function Home() {
   return (
     <div>
@@ -43,6 +44,7 @@ export default function Home() {
       <InfoSection />
       <Faqs />
       <BackToTopBtn href="/" />
+      <SocialLinks />
     </div>
   );
 }
