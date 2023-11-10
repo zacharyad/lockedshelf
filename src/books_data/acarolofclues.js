@@ -1,6 +1,6 @@
 export const initialACarolOfCluesBookData = {
   id: 1,
-  snapshot: 1,
+  snapshot: 2,
   hintsUsedCount: 0,
   name: 'A Carol of Clues',
   bookImage: '/assets/acarolofclues.png',
@@ -23,14 +23,16 @@ export const initialACarolOfCluesBookData = {
       answers: [
         'may you always have time to enjoy the birds.',
         'may you always have time to enjoy the birds',
+        'you always have time to enjoy the birds',
+        'you always have time to enjoy the birds.',
       ],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        "This trail may be seen using binaculars, but I won't squak if you dont. What would that quote say on that sign if you were standing in front of it?",
-        'Easiest Hint',
+        'What would that quote say on that sign if you were standing in front of it?',
+        "This puzzle has to do with a trail. I won't squak if you don't know it. If you are around Manhattan, you may be Best to talk to Cecil",
       ],
     },
     {
@@ -45,8 +47,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'You may need to take note of the length of those lines on the N01es page. B. I. Nary would always turn to his home Base 10',
-        'Easiest Hint',
+        'One of these pages is not like the others. There is a quote that may give you more info than lines on the page.',
+        'You may need to take note of the length of those lines on the N01es page. B. I. Nary would always turn to his home at... Base 10',
       ],
     },
     {
@@ -62,7 +64,7 @@ export const initialACarolOfCluesBookData = {
       lastHintSeen: false,
       hint: [
         'Each place should be found in Manhattan... Should be easy if you are looking for the right numbers in the outline.',
-        'Easiest Hint',
+        'There are images in order. Find the locations in real life; in return this may help you find them on a map. Your answer should be all sorts of numbers',
       ],
     },
     {
@@ -77,8 +79,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'This is the sculpture on a large area of learning. A large word seen near may help you with the answer?',
-        'Easiest Hint',
+        'The above name is actrually the artist of an outline within those pages. You May find this artwork where purple clothing can be found most often from September to May.',
+        'A large word seen on the opposite book page may help you with the answer to when this SCULPTURE was installed?',
       ],
     },
     {
@@ -93,8 +95,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'The berries are your missing variable. It may all look a lot better from a new perspective that we will need to see.',
-        'Easiest Hint',
+        "The berries are your missing variable, can't you SEE",
+        'It may all look a lot better from a new perspective that we will need to see through. Solve this new perspective to get you negative answer.',
       ],
     },
     {
@@ -109,8 +111,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'The sentence "This sentence" has 2 t\'s and you know exactly what it says.',
-        'Easiest Hint',
+        'The word "Letter" has two letter "t"\'s in it.',
+        'This is a person in the book. Count those letters and figure it out!',
       ],
     },
     {
@@ -125,8 +127,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'These shapes have sides. These sides might be helpful in telling you the order of the symbols.',
-        'Easiest Hint',
+        'The above shape has sides. What could a bunch of sides have to do with makeing this larger shape?',
+        'These sides might be helpful in telling you the order of the symbols you found.',
       ],
     },
     {
@@ -136,14 +138,14 @@ export const initialACarolOfCluesBookData = {
       imageAlt:
         'Ruler with the bottom left corner cut out with a circular shape. The ruler has tick marks labeled from 0-9',
       isSolved: false, // Do not change this ever
-      answers: ['ghost of three'],
+      answers: ['ghost of three', 'ghostofthree'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0,
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'Free the measuring device. Square it with the circles and let the number tell you the letter. Unscramble it to find your answer.',
-        'Easiest Hint',
+        'Free the measuring device and hunt down those circles!',
+        'Square it with the circles and let the number tell you the letter you need. Collect all 12 letters. Unscramble to find your answer three word answer.',
       ],
     },
     {
@@ -159,8 +161,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'You may need to see through these in order to find the right numbers',
-        'Easiest Hint',
+        "I can see right through this puzzle, can't you?",
+        'Find the grid of numbers and letter each square show you the answer.',
       ],
     },
     {
@@ -176,8 +178,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'What does this sign say as you enter Manhattan, KS?',
-        'Easiest Hint',
+        'This sign says something..I just can\t tell what it might say. I bet you would welcome any help you could get.',
+        'What does this welcome sign say as you enter Manhattan, KS from the east?',
       ],
     },
     {
@@ -192,8 +194,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'Stars make a pattern, of which the first letter of its name matters. Use the moon to give you the order of those letters',
-        'Easiest Hint',
+        'Zodiac constellations are all spelled with a first letter... But what could the order be? Would Buzz Aldrin know that bit of info?',
+        'Stars make a pattern, of which the first letter of its zodiac name matters. Use the moon phases to give you the order of those letters',
       ],
     },
     {
@@ -202,15 +204,15 @@ export const initialACarolOfCluesBookData = {
       imageSrc: `/assets/acarolofclues/puzzleImage11.png`,
       imageAlt: 'Image of a flooded area with a sign that says "Flood"',
       isSolved: false, // Do not change this ever
-      answers: ['1903', '1844', '1951', '1993'],
+      answers: ['1844'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0,
 
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'One year happened to be an issue for the town of Manhattan, KS.',
-        'Easiest Hint',
+        'Cut the page so that images become whole. Read the sentence to get to your goal.',
+        'One year happened to be an issue for the town of Manhattan, KS. What was the year of this',
       ],
     },
   ],
