@@ -1,7 +1,7 @@
 export const tutorial = {
-  id: 3,
+  id: 4, // Only change this when creating new data for new book.
   snapshot: 2,
-  hintsUsedCount: 0,
+  hintsUsedCount: 0, // Do not change this ever
   name: '- Tutorial -',
   bookImage: '/assets/bookshelf.png',
   isSolved: false, // Do not change this ever
@@ -20,7 +20,7 @@ export const tutorial = {
       answers: ['1'],
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
-      hint: ["You won't see this just roman' around", 'The anser is 1'],
+      hint: ["You won't see this just roman' around", 'The answer is 1'],
       firstHintSeen: false,
       lastHintSeen: false,
     },
@@ -34,8 +34,8 @@ export const tutorial = {
       timeSolved: undefined, // Do not change this ever
       tryCount: 0, // Do not change this ever
       hint: [
-        'This this were rolled what number would you get?',
-        'The answer is 2, come on.',
+        'If this were face up when it was rolled, what number would you get?',
+        'The answer is 2, like when you roll dice... come on.',
       ],
       firstHintSeen: false,
       lastHintSeen: false,
