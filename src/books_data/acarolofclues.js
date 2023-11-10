@@ -1,6 +1,6 @@
 export const initialACarolOfCluesBookData = {
   id: 1,
-  snapshot: 2,
+  snapshot: 3,
   hintsUsedCount: 0,
   name: 'A Carol of Clues',
   bookImage: '/assets/acarolofclues.png',
@@ -79,8 +79,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'The above name is actrually the artist of an outline within those pages. You May find this artwork where purple clothing can be found most often from September to May.',
-        'A large word seen on the opposite book page may help you with the answer to when this SCULPTURE was installed?',
+        'The above name is actually the artist of the drawing within those pages. You may find this artwork where purple clothing can be found most often from September to May.',
+        'A large word seen on the opposite book page may help you with the answer to when this was installed?',
       ],
     },
     {
@@ -194,7 +194,7 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'Zodiac constellations are all spelled with a first letter... But what could the order be? Would Buzz Aldrin know that bit of info?',
+        'Zodiac constellations are all spelled with a first letter, obviously... But what could the order be? Would Buzz Aldrin know that bit of info?',
         'Stars make a pattern, of which the first letter of its zodiac name matters. Use the moon phases to give you the order of those letters',
       ],
     },
