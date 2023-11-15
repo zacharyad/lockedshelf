@@ -1,6 +1,6 @@
 export const initialACarolOfCluesBookData = {
   id: 1,
-  snapshot: 3,
+  snapshot: 4,
   hintsUsedCount: 0,
   name: 'A Carol of Clues',
   bookImage: '/assets/acarolofclues.png',
@@ -79,8 +79,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'The above name is actually the artist of the drawing within those pages. You may find this artwork where purple clothing can be found most often from September to May.',
-        'A large word seen on the opposite book page may help you with the answer to when this was installed?',
+        'The above name is the artist of the drawing within those pages. You may find this artwork where purple clothing can be found most often from September to May.',
+        'Large letters seen on the opposite book page may help you with the answer to when this was installed?',
       ],
     },
     {
@@ -95,8 +95,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        "The berries are your missing variable, can't you SEE",
-        'It may all look a lot better from a new perspective that we will need to see through. Solve this new perspective to get you negative answer.',
+        "The variable is the missing berries, can't you SEE",
+        'The equation will be more transparent if you flip your perspective. Solve this to get your negative answer.',
       ],
     },
     {
@@ -112,7 +112,7 @@ export const initialACarolOfCluesBookData = {
       lastHintSeen: false,
       hint: [
         'The word "Letter" has two letter "t"\'s in it.',
-        'This is a person in the book. Count those letters and figure it out!',
+        'Count the letters of this notable character',
       ],
     },
     {
@@ -178,8 +178,8 @@ export const initialACarolOfCluesBookData = {
       firstHintSeen: false,
       lastHintSeen: false,
       hint: [
-        'This sign says something..I just can\t tell what it might say. I bet you would welcome any help you could get.',
-        'What does this welcome sign say as you enter Manhattan, KS from the east?',
+        'I bet you would welcome any help you could get.',
+        'What does this welcome sign say as you enter Manhattan, KS?',
       ],
     },
     {
@@ -212,7 +212,7 @@ export const initialACarolOfCluesBookData = {
       lastHintSeen: false,
       hint: [
         'Cut the page so that images become whole. Read the sentence to get to your goal.',
-        'One year happened to be an issue for the town of Manhattan, KS. What was the year of this',
+        'A natural disaster happened in this year.',
       ],
     },
   ],
