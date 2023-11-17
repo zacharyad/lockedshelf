@@ -9,7 +9,7 @@ export const initialACarolOfCluesBookData = {
   imageAlt:
     'Image of a bearded Scrooge holding a key on the right side of the image and a door with wreaths all around it with people exiting the doow to a snowy scene',
   timeEnded: undefined,
-  timeStarted: new Date().toUTCString(),
+  timeStarted: undefined,
   amazonWebAddress: 'https://www.amazon.com',
   isShowingHints: false, // Do not change this ever
   puzzles: [

@@ -44,6 +44,7 @@ function BookAnswersPage({ bookData }) {
 
       localStorage.setItem('books', JSON.stringify(newLsBooksArr));
     } else {
+      bookData.timeStarted = new Date().toUTCString();
       localStorage.setItem(
         'books',
         JSON.stringify(handleAddingBookToShelf(lsBooks, bookData))
