@@ -88,6 +88,10 @@ export function wonBook(books, book) {
   return book;
 }
 
+export function getUsersTime() {
+  return new Date().toUTCString();
+}
+
 export function booksUserDoesNotHave(usersBooks, allBooks) {
   if (!usersBooks) return allBooks;
   let retArr = [];
