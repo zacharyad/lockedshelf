@@ -9,6 +9,7 @@ import {
   handleAddingBookToShelf,
   wonBook,
   mergeNewDataWithOldData,
+  getUsersTime,
 } from '../utils';
 import BackToTopBtn from '@/components/backtotopbtn';
 
@@ -44,7 +45,7 @@ function BookAnswersPage({ bookData }) {
 
       localStorage.setItem('books', JSON.stringify(newLsBooksArr));
     } else {
-      bookData.timeStarted = new Date().toUTCString();
+      bookData.timeStarted = getUsersTime();
       localStorage.setItem(
         'books',
         JSON.stringify(handleAddingBookToShelf(lsBooks, bookData))
