@@ -35,12 +35,12 @@ export const faqs = [
   {
     question: 'What do I do when I am done?',
     answer:
-      "Congratulations! You did it! But before you bid farewell to that trusty book, hold up! Let's rescue it from the dusty confines of a landfill. Swing by Locked Manhattan while operating, located at 116 S 4th St #122a, Manhattan, KS 66502, and drop off your book for recycling; regardless of its condition! Call 262-843-5625 to ensure adequate drop-off time.",
+      "Congratulations! You did it! First thing, Capture and share a screenshot of your winning book webpage, showcasing your completion time and number of hints used. Share your success on social media — tag us on Instagram or Facebook!. Second, before you bid farewell to that trusty book, hold up! Let's rescue it from the dusty confines of a landfill. On your next Locked Manhattan reservation, bring in your used book (in any condition!) for recycling. In exchange for your eco-smart move we will hand you a silicone wristband.",
   },
   {
     question:
-      'Can I get a cool wristband for recycling my book at Locked Manhattan?',
+      'Can I get a cool wristband for recycling my book at Locked Manhattan? Funny you should have asked...',
     answer:
-      "OF COURSE! As a token of our appreciation for your eco-conscious move, we'll hand you a sleek silicone wristband, marking your triumph in cracking the code of a Locked Shelf adventure.",
+      "OF COURSE! As a token of our appreciation for your eco-conscious move, we'll hand you a sleek silicone wristband, marking your triumph in cracking the code of a Locked Shelf adventure. To recieve your wristband hand us your used book on your next Locked Manhattan escape room reservation",
   },
 ];
