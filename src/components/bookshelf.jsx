@@ -74,7 +74,7 @@ function BookShelf() {
           return (
             <a
               key={book.name}
-              target={anchorTarget}
+              
               href={book.amazonWebAddress}
             >
               <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 flex flex-col items-center text-center hover:opacity-90">
