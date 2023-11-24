@@ -91,7 +91,7 @@ function BookShelf() {
         <Spacer size={12} />
         <Link
           target="_blank"
-          href="https://www.amazon.com"
+          href="https://www.amazon.com/dp/B0CMXNYJT8?binding=paperback&ref=dbs_dp_sirpi"
           className=" border-2 px-6 py-2 text-slate-100 bg-blue-800 rounded-md hover:bg-blue-700 hover:text-blue-100 focus:ring-blue-800"
         >
           See on Amazon
