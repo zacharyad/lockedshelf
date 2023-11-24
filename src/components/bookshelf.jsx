@@ -70,10 +70,11 @@ function BookShelf() {
         </div>
 
         {booksUserDoesNotHave(books, allBooks).map((book) => {
+          const anchorTarget = book.id === 3 ? "" : "_blank"
           return (
             <a
               key={book.name}
-              target={book.id != 3 && '_blank'}
+              target={anchorTarget}
               href={book.amazonWebAddress}
             >
               <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 flex flex-col items-center text-center hover:opacity-90">
