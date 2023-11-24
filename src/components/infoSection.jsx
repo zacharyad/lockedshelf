@@ -22,7 +22,7 @@ export default function InfoSection() {
             Buy a Book!
           </h5>
 
-          <p className="mb-3 font-normal text-gray-700">
+          <p className="mb-3 font-normal text-slate-100">
             Buy a book. The book ships. You have the Book. Now find the QR
             code/Link to access that book&lsquo;s Answer entry page.
           </p>
