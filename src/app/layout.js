@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
             </Link>
             <div className="mr-8">
               <Link
-                href="https://www.amazon.com"
+                href="https://www.amazon.com/dp/B0CMXNYJT8?binding=paperback&ref=dbs_dp_sirpi"
                 target="_blank"
                 className="border-2 px-2 text-[1rem] py-1 text-center bg-slate-200 border-blue-800 text-blue-800 rounded-md hover:bg-blue-700 hover:text-blue-100 focus:ring-blue-800"
               >
