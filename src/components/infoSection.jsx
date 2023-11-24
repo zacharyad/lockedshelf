@@ -28,7 +28,7 @@ export default function InfoSection() {
           </p>
           <Link
             target="_blank"
-            href="https://www.amazon.com"
+            href="https://www.amazon.com/dp/B0CMXNYJT8?binding=paperback&ref=dbs_dp_sirpi"
             className="inline-flex items-center px-3 py-2 text-sm text-blue-800 font-medium text-center border-2 border-blue-800 rounded-lg focus:ring-4 focus:outline-none  bg-blue-100 hover:bg-blue-700 hover:text-blue-200 focus:ring-blue-800"
           >
             Buy on Amazon
