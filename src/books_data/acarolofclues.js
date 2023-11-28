@@ -10,7 +10,7 @@ export const initialACarolOfCluesBookData = {
     'Image of a bearded Scrooge holding a key on the right side of the image and a door with wreaths all around it with people exiting the doow to a snowy scene',
   timeEnded: undefined,
   timeStarted: undefined,
-  amazonWebAddress: 'https://www.amazon.com',
+  amazonWebAddress: 'https://www.amazon.com/gp/aw/d/B0CNNV27TM?ref_=dbs_m_mng_wim_calw_tpbk_0&storeType=ebooks',
   isShowingHints: false, // Do not change this ever
   puzzles: [
     {
