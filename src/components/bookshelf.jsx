@@ -19,7 +19,7 @@ function BookShelf() {
 
   return (
     <div id="bookShelf" className="">
-      <div className="pt-8  bg-slate-300">
+      <div className="pt-8  bg-blue-400">
         {books.length !== 0 ? (
           <h2 className="text-center p-4 text-5xl  text-black">
             Your Book Shelf
@@ -30,7 +30,7 @@ function BookShelf() {
           </h2>
         )}
       </div>
-      <section className="bg-slate-300 w-full flex flex-col items-center gap-4">
+      <section className="bg-blue-400 w-full flex flex-col items-center gap-4">
         {books.length !== 0 &&
           books.map((book) => {
             let won = book.isSolved;
@@ -59,7 +59,7 @@ function BookShelf() {
             );
           })}
 
-        <div className="pt-8  bg-slate-300">
+        <div className="pt-8  bg-blue-400">
           {books.length !== 0 ? (
             <h2 className="text-center p-4 text-5xl  text-black">
               The Locked Shelf
@@ -70,13 +70,9 @@ function BookShelf() {
         </div>
 
         {booksUserDoesNotHave(books, allBooks).map((book) => {
-          const anchorTarget = book.id === 3 ? "" : "_blank"
+          const anchorTarget = book.id === 3 ? '' : '_blank';
           return (
-            <a
-              key={book.name}
-              
-              href={book.amazonWebAddress}
-            >
+            <a key={book.name} href={book.amazonWebAddress}>
               <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 flex flex-col items-center text-center hover:opacity-90">
                 <Image
                   alt={book.imageAlt}
