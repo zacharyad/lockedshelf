@@ -19,7 +19,7 @@ function BookShelf() {
 
   return (
     <div id="bookShelf" className="">
-      <div className="pt-8  bg-blue-400">
+      <div className="pt-8  bg-slate-200">
         {books.length !== 0 ? (
           <h2 className="text-center p-4 text-5xl  text-black">
             Your Book Shelf
@@ -30,7 +30,7 @@ function BookShelf() {
           </h2>
         )}
       </div>
-      <section className="bg-blue-400 w-full flex flex-col items-center gap-4">
+      <section className="bg-slate-200 w-full flex flex-col items-center gap-4">
         {books.length !== 0 &&
           books.map((book) => {
             let won = book.isSolved;
@@ -59,7 +59,7 @@ function BookShelf() {
             );
           })}
 
-        <div className="pt-8  bg-blue-400">
+        <div className="pt-8  bg-slate-200">
           {books.length !== 0 ? (
             <h2 className="text-center p-4 text-5xl  text-black">
               The Locked Shelf
