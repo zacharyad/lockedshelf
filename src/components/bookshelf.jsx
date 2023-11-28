@@ -70,10 +70,11 @@ function BookShelf() {
         </div>
 
         {booksUserDoesNotHave(books, allBooks).map((book) => {
+          const anchorTarget = book.id === 3 ? "" : "_blank"
           return (
             <a
               key={book.name}
-              target={book.id != 3 && '_blank'}
+              
               href={book.amazonWebAddress}
             >
               <div className="bg-slate-700 h-96 m-auto border-2 rounded-md p-4 flex flex-col items-center text-center hover:opacity-90">
@@ -91,7 +92,7 @@ function BookShelf() {
         <Spacer size={12} />
         <Link
           target="_blank"
-          href="https://www.amazon.com"
+          href="https://www.amazon.com/dp/B0CMXNYJT8?binding=paperback&ref=dbs_dp_sirpi"
           className=" border-2 px-6 py-2 text-slate-100 bg-blue-800 rounded-md hover:bg-blue-700 hover:text-blue-100 focus:ring-blue-800"
         >
           See on Amazon
