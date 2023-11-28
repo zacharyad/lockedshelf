@@ -4,8 +4,10 @@ import { BsArrowDownShort } from 'react-icons/bs';
 
 export default function InfoSection() {
   return (
-    <div id="info" className="flex flex-col items-center gap-2 m-8">
-      <h2 className="text-5xl text-center py-4 font-bold mb-8">How it Works</h2>
+    <div id="info" className="flex flex-col items-center gap-2 m-8 ">
+      <h2 className="text-5xl text-center py-4 font-bold mb-8 text-slate-700">
+        How it Works
+      </h2>
       <BsArrowDownShort className="w-32 h-32 mx-auto" />
       {/* Step one */}
       <div className="max-w-sm text-white  rounded-lg shadow bg-blue-700 border-gray-700">
@@ -22,7 +24,7 @@ export default function InfoSection() {
             Buy a Book!
           </h5>
 
-          <p className="mb-3 font-normal text-gray-700">
+          <p className="mb-3 font-normal text-slate-300">
             Buy a book. The book ships. You have the Book. Now find the QR
             code/Link to access that book&lsquo;s Answer entry page.
           </p>
@@ -54,7 +56,7 @@ export default function InfoSection() {
 
       <BsArrowDownShort className="w-32 h-32 mx-auto" />
 
-      <div className="max-w-sm text-white  rounded-lg shadow bg-blue-700 border-gray-700">
+      <div className="max-w-sm text-white rounded-lg shadow bg-blue-700 border-gray-700">
         <Image
           width={600}
           height={600}
@@ -64,10 +66,10 @@ export default function InfoSection() {
         />
 
         <div className="p-5">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight">
             Start solving puzzles.
           </h5>
-          <p className="mb-3 font-normal text-gray-300">
+          <p className="mb-3 font-normal text-slate-300">
             Find puzzles in the book that connect with the puzzles inputs on the
             book&lsquo;s answer entry page.
             <br />
@@ -91,7 +93,7 @@ export default function InfoSection() {
         />
 
         <div className="p-5">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight">
             Solve all puzzles to WIN!
           </h5>
           <p className=" font-normal text-gray-300 pb-4">
