@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 import Spacer from '@/components/spacer';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: 'Locked Shelf',
@@ -37,7 +38,11 @@ export default function RootLayout({ children }) {
           </div>
         </nav>
         <Spacer size={8} />
-        <main>{children}</main>
+        <main>
+          {children}
+
+          <Analytics />
+        </main>
         <Spacer size={32} />
 
         <footer className="border-t-2  backdrop-blur-xl border-slate-800 border-opacity-70 bg-inherit opacity-80 text-sm p-4">
