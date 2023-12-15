@@ -20,7 +20,7 @@ export const faqs = [
   {
     question: 'Will I be timed on how fast I solve a book?',
     answer:
-      'The time taken to solve each individual puzzle is calculated from the moment you open the book\'s “Answer entry page” to when you solve it. The total "solved time" for the whole book is calculated from the start time and time to finish your last puzzle. While hints used are recorded they do not affect your recorded time(3).',
+      'The time taken to solve each individual puzzle is calculated from the moment you open the book\'s “Answer entry page” to when you solve it. The total "solved time" for the whole book is calculated from the start time and time to finish your last puzzle. While hints used are recorded they do not affect your recorded time(s).',
   },
   {
     question: 'Can I compete with friends and/or family?',
