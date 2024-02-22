@@ -3,7 +3,7 @@ export const faqs = [
     question:
       "How can I access the book's answer entry page, and what is the prerequisite for gaining access to this page?",
     answer:
-      "You can access the book's answer entry page by using the special website link provided in the book you've bought. This page is only accessible to those who have purchased the book and used the link from the book. This ensures that only the book's rightful owners can join the interactive puzzle experience on the website.",
+      "You can access the book's answer entry page by using the special website link provided in the book you've bought. This page is only accessible to those who have purchased the book and used the link from the book. This ensures that only the book's owners can join the interactive puzzle experience on the website.",
   },
   {
     question:
@@ -15,7 +15,7 @@ export const faqs = [
     question:
       'How are my answers stored and managed on the browser to ensure data privacy?',
     answer:
-      "Your answers are stored securely in your browser's memory, ensuring your data remains private and accessible only to you on your device.",
+      "Your answers are stored securely in your browser's memory, ensuring your data remains private and accessible only to you on your device. Depending on your browser this data may be automatically cleared after 7 days of not visiting this website. Our software engineers are working on improving this experience for a better data management solution in the future.",
   },
   {
     question: 'Will I be timed on how fast I solve a book?',
